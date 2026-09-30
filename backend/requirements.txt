@@ -1,0 +1,33 @@
+# API
+fastapi==0.115.*
+uvicorn[standard]==0.32.*
+pydantic==2.*
+pydantic-settings==2.*
+python-dotenv==1.*
+
+# LLM + agents
+langgraph==0.2.*
+langchain-core==0.3.*
+langchain-openai==0.2.*
+openai==1.*
+
+# RAG
+qdrant-client==1.12.*
+sentence-transformers==3.*
+rank-bm25==0.2.*
+tiktoken==0.8.*
+
+# Data + evaluation
+numpy
+pandas
+scikit-learn
+datasets
+tqdm
+
+# Storage
+sqlalchemy==2.*
+
+# Testing + quality
+pytest
+httpx
+ruff
