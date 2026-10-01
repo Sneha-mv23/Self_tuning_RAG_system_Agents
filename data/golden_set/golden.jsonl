@@ -1,0 +1,2 @@
+{"id": "q001", "question": "How do I declare a path parameter?", "type": "factual", "reference_answer": "Put the parameter name in curly braces in the path, using the same syntax as Python format strings.", "evidence": [{"doc_id": "tutorial/path-params.md", "quote": "with the same syntax used by Python format strings"}]}
+{"id": "q002", "question": "What is the capital of France?", "type": "unanswerable", "reference_answer": null, "evidence": []}
