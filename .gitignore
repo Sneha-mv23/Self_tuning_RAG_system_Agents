@@ -26,3 +26,5 @@ mlruns/
 .vscode/
 .idea/
 .DS_Store
+
+experiments/runs/
