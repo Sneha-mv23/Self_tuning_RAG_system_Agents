@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     judge_base_url: str = "http://localhost:11434/v1"
     judge_api_key: str = "ollama"
     judge_model: str = "llama3:latest"
+    judge_min_interval_s: float = 0.0  # pause between judge calls (set > 0 for rate-limited free tiers)
 
 
     # Embeddings (local, free)
