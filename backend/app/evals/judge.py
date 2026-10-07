@@ -16,7 +16,7 @@ from app.rag.loader import Document
 JUDGE_CACHE_PATH = "data/cache/judgments.sqlite"
 PURE_REFUSAL_MAX_CHARS = 120
 
-_JSON_FORMAT = 'Reply with JSON only: {{"reason": "<one short sentence>", "verdict": "yes" or "no"}}'
+_JSON_FORMAT = _JSON_FORMAT = 'Reply with JSON only, with the verdict FIRST: {{"verdict": "yes" or "no", "reason": "<one short sentence>"}}'
 
 CORRECT_PROMPT = (
     "You are grading an answer to a question about software documentation.\n\n"
@@ -119,7 +119,7 @@ class Verdict:
 class Judge:
     def __init__(self, cache: JudgeCache | None = None, llm=None, min_interval_s: float | None = None):
         self.cache = cache or JudgeCache()
-        self.llm = llm or get_judge(max_tokens=200)
+        self.llm = llm or get_judge(max_tokens=1024)
         self.min_interval_s = settings.judge_min_interval_s if min_interval_s is None else min_interval_s
         self._last_call = 0.0
 
@@ -134,30 +134,36 @@ class Judge:
         return self.cache.get(self._key(kind, prompt)) is not None
 
     def ask(self, kind: str, prompt: str) -> Verdict:
-        key = self._key(kind, prompt)
-        hit = self.cache.get(key)
-        if hit is not None:
-            return Verdict(hit[0], hit[1], True, None)
+            key = self._key(kind, prompt)
+            hit = self.cache.get(key)
+            if hit is not None:
+                return Verdict(hit[0], hit[1], True, None)
 
-        last_error = None
-        for attempt in range(4):
-            wait = self.min_interval_s - (time.monotonic() - self._last_call)
-            if wait > 0:
-                time.sleep(wait)
-            try:
-                self._last_call = time.monotonic()
-                reply = self.llm.invoke(prompt)
-            except Exception as e:  # noqa: BLE001 - rate limits and network errors both land here
-                last_error = f"{type(e).__name__}: {e}"
-                time.sleep(5 * 3**attempt)  # 5s, 15s, 45s, 135s
-                continue
-            value, reason = parse_verdict(str(reply.content))
-            if value is None:
-                # Same prompt at temperature 0 would give the same output, so don't retry or cache.
-                return Verdict(None, reason, False, f"unparseable judge output: {reason[:80]!r}")
-            self.cache.put(key, value, reason)
-            return Verdict(value, reason, False, None)
-        return Verdict(None, "", False, last_error)
+            last_error = None
+            for attempt in range(4):
+                wait = self.min_interval_s - (time.monotonic() - self._last_call)
+                if wait > 0:
+                    time.sleep(wait)
+                try:
+                    self._last_call = time.monotonic()
+                    reply = self.llm.invoke(prompt)
+                except Exception as e:  # noqa: BLE001 - rate limits and network errors both land here
+                    last_error = f"{type(e).__name__}: {e}"
+                    if _is_rate_limit(last_error):
+                        # A daily quota will not recover by waiting. A per-minute one usually does within ~60s.
+                        if _is_daily_quota(last_error) or attempt >= 2:
+                            raise QuotaExhausted(last_error) from e
+                        time.sleep(20 * (attempt + 1))
+                    else:
+                        time.sleep(5 * 3**attempt)  # connection errors: 5s, 15s, 45s, 135s
+                    continue
+                value, reason = parse_verdict(str(reply.content))
+                if value is None:
+                    # Same prompt at temperature 0 would give the same output, so don't retry or cache.
+                    return Verdict(None, reason, False, f"unparseable judge output: {reason[:80]!r}")
+                self.cache.put(key, value, reason)
+                return Verdict(value, reason, False, None)
+            return Verdict(None, "", False, last_error)
 
 
 def context_from_spans(used_chunks: list[dict], docs_by_id: dict[str, Document]) -> str:
@@ -242,3 +248,15 @@ def summarize_judgments(js: list[Judgment]) -> dict:
         "pure_refusal_rate_answerable": _rate([j.pure_refusal for j in ans]),
         "mixed_refusal_rate": _rate([j.mixed_refusal for j in ok]),
     }
+
+class QuotaExhausted(RuntimeError):
+    """Raised when the judge API refuses further calls (rate limit or daily quota)."""
+
+
+def _is_rate_limit(err: str) -> bool:
+    e = err.lower()
+    return any(s in e for s in ("429", "ratelimit", "resource_exhausted", "quota"))
+
+
+def _is_daily_quota(err: str) -> bool:
+    return "perday" in err.lower().replace("_", "").replace(" ", "")

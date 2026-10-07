@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 from app.config import settings
 from app.evals.golden import load_golden
-from app.evals.judge import Judge, build_jobs, judge_record, summarize_judgments
+from app.evals.judge import Judge, QuotaExhausted, build_jobs, judge_record, summarize_judgments
 from app.rag.loader import load_corpus
 
 ap = argparse.ArgumentParser()
@@ -39,18 +39,24 @@ if args.dry_run:
     raise SystemExit(0)
 
 judgments = []
-for n, r in enumerate(records, start=1):
-    j = judge_record(judge, r, items[r["id"]], docs_by_id)
-    judgments.append(j)
-    tags = []
-    if j.pure_refusal:
-        tags.append("pure_refusal")
-    if j.mixed_refusal:
-        tags.append("MIXED_REFUSAL")
-    if j.error:
-        tags.append(f"ERROR {j.error[:80]}")
-    print(f"[{n}/{len(records)}] {j.id} [{j.type}] correct={j.correct} faithful={j.faithful} "
-          + " ".join(tags), flush=True)
+try:
+    for n, r in enumerate(records, start=1):
+        j = judge_record(judge, r, items[r["id"]], docs_by_id)
+        judgments.append(j)
+        tags = []
+        if j.pure_refusal:
+            tags.append("pure_refusal")
+        if j.mixed_refusal:
+            tags.append("MIXED_REFUSAL")
+        if j.error:
+            tags.append(f"ERROR {j.error[:80]}")
+        print(f"[{n}/{len(records)}] {j.id} [{j.type}] correct={j.correct} faithful={j.faithful} "
+              + " ".join(tags), flush=True)
+except QuotaExhausted as e:
+    print(f"\nSTOPPED: judge quota exhausted after {len(judgments)} of {len(records)} questions.")
+    print(f"  {str(e)[:300]}")
+    print("Finished verdicts are cached. Rerun the same command once the quota resets and it continues.")
+    raise SystemExit(1)
 
 s = summarize_judgments(judgments)
 print(f"\n{s['n']} judged | errors={s['errors']}")

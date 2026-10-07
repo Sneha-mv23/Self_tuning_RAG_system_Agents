@@ -23,4 +23,5 @@ def get_judge(max_tokens: int = 512) -> ChatOpenAI:
         temperature=0.0,
         max_tokens=max_tokens,
         timeout=300,
+        max_retries=0,
     )

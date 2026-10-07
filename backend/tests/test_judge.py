@@ -1,9 +1,10 @@
 from types import SimpleNamespace
+import pytest
 
 from app.evals.golden import Evidence, GoldenItem
 from app.evals.judge import (
     Judge, JudgeCache, build_jobs, context_from_spans, is_mixed_refusal,
-    is_pure_refusal, judge_record, parse_verdict,
+    is_pure_refusal, judge_record, parse_verdict,QuotaExhausted,
 )
 from app.rag.loader import Document
 
@@ -96,3 +97,27 @@ def test_unparseable_output_is_an_error_and_not_cached(tmp_path):
     assert v.value is None and v.error and llm.calls == 1
     judge.ask("correct", "p")
     assert llm.calls == 2
+
+
+def test_parse_truncated_reply_still_gets_verdict():
+    value, _ = parse_verdict('{"verdict": "yes", "reason": "The cand')
+    assert value is True
+    value, _ = parse_verdict('{"verdict": "no", "reas')
+    assert value is False
+
+class RaisingLLM:
+    def __init__(self, message):
+        self.message = message
+        self.calls = 0
+
+    def invoke(self, prompt):
+        self.calls += 1
+        raise RuntimeError(self.message)
+
+
+def test_daily_quota_stops_immediately(tmp_path):
+    llm = RaisingLLM("429 RESOURCE_EXHAUSTED GenerateRequestsPerDayPerProjectPerModel-FreeTier")
+    judge = Judge(cache=JudgeCache(str(tmp_path / "j.sqlite")), llm=llm, min_interval_s=0)
+    with pytest.raises(QuotaExhausted):
+        judge.ask("correct", "p")
+    assert llm.calls == 1
