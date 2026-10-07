@@ -1,4 +1,4 @@
-from app.evals.generation_run import GenerationCache, is_refusal, make_key, percentile
+from app.evals.generation_run import STALL_S,GenerationRecord,GenerationCache, is_refusal, make_key, percentile, summarize_generation
 
 
 def test_key_is_deterministic_and_sensitive():
@@ -27,3 +27,13 @@ def test_refusal_detection():
     assert is_refusal("I don't know based on the provided documents.")
     assert is_refusal("I don\u2019t know based on the provided documents.")
     assert not is_refusal("Use the decorator @app.middleware.")
+
+
+def _rec(id, latency):
+    return GenerationRecord(id=id, type="factual", question="q", answer="a", prompt_tokens=10,
+                            latency_s=latency, cache_hit=False, over_context=False, error=None, used_chunks=[])
+
+
+def test_stalled_calls_excluded_from_latency_stats():
+    s = summarize_generation([_rec("a", 90.0), _rec("b", 110.0), _rec("c", STALL_S + 1)])
+    assert s["mean_latency_s"] == 100.0

@@ -59,6 +59,12 @@ def is_pure_refusal(answer: str) -> bool:
 def is_mixed_refusal(answer: str) -> bool:
     return is_refusal(answer) and not is_pure_refusal(answer)
 
+_CITATION_RE = re.compile(r"\s*\[\d+\]")
+
+
+def strip_citations(text: str) -> str:
+    """Remove markers like [3] so the faithfulness judge cannot penalize a wrong passage number."""
+    return _CITATION_RE.sub("", text)
 
 _JSON_RE = re.compile(r"\{.*?\}", re.DOTALL)
 _VERDICT_RE = re.compile(r"verdict\W{0,4}(yes|no)\b", re.IGNORECASE)
@@ -184,8 +190,8 @@ def build_jobs(record: dict, item: GoldenItem, docs_by_id: dict[str, Document]) 
     return [
         ("correct", CORRECT_PROMPT.format(
             question=item.question, reference=item.reference_answer, answer=answer)),
-        ("faithful", FAITHFUL_PROMPT.format(
-            context=context_from_spans(record["used_chunks"], docs_by_id), answer=answer)),
+            ("faithful", FAITHFUL_PROMPT.format(
+            context=context_from_spans(record["used_chunks"], docs_by_id), answer=strip_citations(answer))),
     ]
 
 

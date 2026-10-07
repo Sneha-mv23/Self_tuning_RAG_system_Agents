@@ -17,6 +17,7 @@ from app.rag.pipeline import RAGConfig
 CACHE_PATH = "data/cache/generations.sqlite"
 MAX_TOKENS = 256
 CONTEXT_LIMIT = 3800  # Ollama's default window is 4096; longer prompts get silently truncated
+STALL_S = 600  # a call slower than this almost certainly hit a sleeping laptop, not a slow model
 
 _REFUSAL_MARKERS = (
     "i don't know",
@@ -111,7 +112,7 @@ def summarize_generation(records: list[GenerationRecord]) -> dict:
     ok = [r for r in records if r.error is None]
     ans = [r for r in ok if r.type != "unanswerable"]
     un = [r for r in ok if r.type == "unanswerable"]
-    lat = [r.latency_s for r in ok]
+    lat = [r.latency_s for r in ok if r.latency_s <= STALL_S]
     return {
         "n": len(records),
         "errors": len(records) - len(ok),
@@ -153,7 +154,8 @@ def run_generation(
             cache_hit = False
             try:
                 answer, latency = _call_llm(llm, prompt)
-                cache.put(key, answer, latency)
+                if latency <= STALL_S:  # a stalled call has a meaningless latency, so don't cache it
+                    cache.put(key, answer, latency)
             except Exception as e:  # noqa: BLE001
                 answer, latency, error = "", 0.0, f"{type(e).__name__}: {e}"
 

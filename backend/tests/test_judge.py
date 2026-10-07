@@ -4,7 +4,7 @@ import pytest
 from app.evals.golden import Evidence, GoldenItem
 from app.evals.judge import (
     Judge, JudgeCache, build_jobs, context_from_spans, is_mixed_refusal,
-    is_pure_refusal, judge_record, parse_verdict,QuotaExhausted,
+    is_pure_refusal, judge_record, parse_verdict,QuotaExhausted,strip_citations,
 )
 from app.rag.loader import Document
 
@@ -121,3 +121,15 @@ def test_daily_quota_stops_immediately(tmp_path):
     with pytest.raises(QuotaExhausted):
         judge.ask("correct", "p")
     assert llm.calls == 1
+
+
+def test_strip_citations():
+    assert strip_citations("Because it is evaluated in order [3].") == "Because it is evaluated in order."
+    assert strip_citations("See [1] and [2].") == "See and."
+
+
+def test_faithful_prompt_has_no_citation_markers():
+    rec = {"answer": "Use the decorator [3].", "error": None, "used_chunks": CHUNKS}
+    jobs = dict(build_jobs(rec, item(), DOCS))
+    assert "[3]" not in jobs["faithful"]
+    assert "[3]" in jobs["correct"]
