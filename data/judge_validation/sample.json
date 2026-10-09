@@ -1,0 +1,351 @@
+{
+  "seed": 7,
+  "pool": {
+    "correct": {
+      "true": 71,
+      "false": 15
+    },
+    "faithful": {
+      "true": 67,
+      "false": 8
+    }
+  },
+  "tasks": [
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q074",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q095",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q012",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q047",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q051",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q034",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q002",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q016",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "strict",
+      "id": "q021",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q018",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q095",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q009",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q067",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q061",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q071",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q029",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q078",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q010",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q013",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q080",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q021",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q093",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q006",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q004",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q024",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q047",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q006",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q073",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q025",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "strict",
+      "id": "q093",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q012",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q083",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q067",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q006",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q005",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q048",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q012",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q036",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q076",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q043",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q042",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q014",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q001",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q093",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q005",
+      "judge": false
+    },
+    {
+      "task": "faithful",
+      "run": "strict",
+      "id": "q037",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "strict",
+      "id": "q012",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q034",
+      "judge": false
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q061",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q064",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "basic",
+      "id": "q028",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "basic",
+      "id": "q035",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q032",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q086",
+      "judge": true
+    },
+    {
+      "task": "correct",
+      "run": "strict",
+      "id": "q021",
+      "judge": true
+    },
+    {
+      "task": "faithful",
+      "run": "strict",
+      "id": "q029",
+      "judge": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{"task": "correct", "run": "basic", "id": "q095", "old": true, "new": false, "note": "answer never mentions JSON vs form encoding, which is the reference's key point"}
+{"task": "faithful", "run": "basic", "id": "q080", "old": true, "new": false, "note": "I judged against the reference, but the context shown has no testing.md passage"}
+{"task": "correct", "run": "basic", "id": "q005", "old": true, "new": false, "note": "answer says use an Enum but leaves out that it must also inherit from str, which the reference includes in the definition"}
+{"task": "correct", "run": "basic", "id": "q006", "old": true, "new": false, "note": "answer never mentions the path convertor and gives the double-slash URL, which the docs tie to a leading slash"}
+{"task": "correct", "run": "basic", "id": "q010", "old": true, "new": false, "note": "answer describes an ordinary string path parameter and never mentions reading the enum member value"}
+{"task": "correct", "run": "basic", "id": "q028", "old": false, "new": true, "note": "answer ends by saying the docs do not mention gRPC, so I now count it as a decline, although its opening sentence is an unsupported claim"}

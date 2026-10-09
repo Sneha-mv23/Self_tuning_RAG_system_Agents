@@ -1,12 +1,13 @@
 import json
 from pathlib import Path
-
+import sys
 from app.evals.agreement import agreement_stats
 
 DIR = Path("data/judge_validation")
 sample = json.loads((DIR / "sample.json").read_text(encoding="utf-8"))
 judge_by_key = {(t["task"], t["run"], t["id"]): t["judge"] for t in sample["tasks"]}
-labels = [json.loads(line) for line in (DIR / "labels.jsonl").read_text(encoding="utf-8").splitlines()
+labels_name = sys.argv[1] if len(sys.argv) > 1 else "labels.jsonl"
+labels = [json.loads(line) for line in (DIR / labels_name).read_text(encoding="utf-8").splitlines()
           if line.strip()]
 
 for task, title in (("correct", "ANSWER CORRECTNESS"), ("faithful", "FAITHFULNESS")):
