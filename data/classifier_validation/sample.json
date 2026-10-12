@@ -1,0 +1,229 @@
+{
+  "seed": 9,
+  "tasks": [
+    {
+      "run": "strict",
+      "id": "q086",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q083",
+      "category": "mixed_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q018",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q047",
+      "category": "partial_retrieval",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q061",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q078",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q030",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q025",
+      "category": "partial_retrieval",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q091",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q036",
+      "category": "mixed_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q034",
+      "category": "ranking_failure",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q043",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q095",
+      "category": "retrieval_miss",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q042",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q012",
+      "category": "partial_retrieval",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q029",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "basic",
+      "id": "q006",
+      "category": "incorrect_answer",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q070",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q021",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q024",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q067",
+      "category": "ranking_failure",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q009",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "basic",
+      "id": "q005",
+      "category": "incorrect_answer",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q037",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q081",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q058",
+      "category": "pass",
+      "predicted_in_prompt": true,
+      "kind": "control"
+    },
+    {
+      "run": "strict",
+      "id": "q010",
+      "category": "retrieval_miss",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q088",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q077",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q080",
+      "category": "ranking_failure",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q045",
+      "category": "ranking_failure",
+      "predicted_in_prompt": false,
+      "kind": "failure"
+    },
+    {
+      "run": "strict",
+      "id": "q003",
+      "category": "over_refusal",
+      "predicted_in_prompt": true,
+      "kind": "failure"
+    }
+  ]
+}

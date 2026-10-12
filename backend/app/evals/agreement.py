@@ -48,3 +48,18 @@ def agreement_stats(pairs: list[tuple[bool, bool]], pool: dict[bool, int]) -> di
         "judge_no_agree": agree[False],
         "judge_no_ci": wilson(agree[False], n[False]),
     }
+
+def sufficiency_table(pairs: list[tuple[bool, str]]) -> dict:
+    """pairs: (classifier says the gold evidence was in the prompt, human label 'y'/'p'/'n').
+
+    strict:  'p' (only a fragment) counts as 'the context did NOT have it'.
+    lenient: 'p' counts as 'the context had it'.
+    """
+    table = {(pred, h): 0 for pred in (True, False) for h in ("y", "p", "n")}
+    for pred, h in pairs:
+        table[(pred, h)] += 1
+    n = len(pairs)
+    strict = table[(True, "y")] + sum(table[(False, h)] for h in ("p", "n"))
+    lenient = sum(table[(True, h)] for h in ("y", "p")) + table[(False, "n")]
+    return {"table": table, "n": n, "strict": strict, "lenient": lenient,
+            "strict_ci": wilson(strict, n), "lenient_ci": wilson(lenient, n)}

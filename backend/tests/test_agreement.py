@@ -1,4 +1,4 @@
-from app.evals.agreement import agreement_stats, wilson
+from app.evals.agreement import agreement_stats, wilson, sufficiency_table
 
 
 def test_perfect_agreement():
@@ -25,3 +25,12 @@ def test_wilson_bounds():
     lo, hi = wilson(8, 10)
     assert 0 < lo < 0.8 < hi < 1
     assert wilson(0, 0) == (0.0, 1.0)
+
+ 
+
+def test_sufficiency_table_strict_and_lenient():
+    pairs = [(True, "y"), (True, "p"), (True, "p"), (False, "n"), (False, "y"), (False, "p")]
+    s = sufficiency_table(pairs)
+    assert s["n"] == 6
+    assert s["strict"] == 3    # (True,y), (False,n), (False,p)
+    assert s["lenient"] == 4   # (True,y), (True,p) x2, (False,n)
