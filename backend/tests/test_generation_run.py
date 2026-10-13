@@ -1,5 +1,5 @@
-from app.evals.generation_run import STALL_S,GenerationRecord,GenerationCache, is_refusal, make_key, percentile, summarize_generation
-
+from app.evals.generation_run import ErrorStreak, GenerationAborted,STALL_S,GenerationRecord,GenerationCache, is_refusal, make_key, percentile, summarize_generation
+import pytest
 
 def test_key_is_deterministic_and_sensitive():
     a = make_key("m", "u", 0.0, 256, "prompt")
@@ -37,3 +37,9 @@ def _rec(id, latency):
 def test_stalled_calls_excluded_from_latency_stats():
     s = summarize_generation([_rec("a", 90.0), _rec("b", 110.0), _rec("c", STALL_S + 1)])
     assert s["mean_latency_s"] == 100.0
+
+def test_error_streak_stops_after_three_in_a_row():
+    s = ErrorStreak(3)
+    s.record("e"); s.record("e"); s.record(None); s.record("e"); s.record("e")
+    with pytest.raises(GenerationAborted):
+        s.record("e")

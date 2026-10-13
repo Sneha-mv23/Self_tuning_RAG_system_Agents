@@ -19,6 +19,7 @@ ap.add_argument("--prompt", choices=list(PROMPTS), default="strict")
 ap.add_argument("--temperature", type=float, default=0.0)
 ap.add_argument("--split", choices=["dev", "test"], default="dev")
 ap.add_argument("--final", action="store_true")
+ap.add_argument("--runs-dir", default="experiments/runs")
 args = ap.parse_args()
 
 if args.split == "test" and not args.final:
@@ -28,14 +29,19 @@ config = RAGConfig(chunk_size=args.chunk_size, overlap=args.overlap, top_k=args.
                    prompt=args.prompt, temperature=args.temperature)
 name = (f"{args.split}_cs{args.chunk_size}_ov{args.overlap}_k{args.top_k}"
         f"_{args.prompt}_t{args.temperature}")
-gen_path = Path(f"experiments/runs/generation_{name}.json")
-judged_path = Path(f"experiments/runs/judged_{name}.json")
+gen_path = Path(args.runs_dir) / f"generation_{name}.json"
+judged_path = Path(args.runs_dir) / f"judged_{name}.json"
 for p in (gen_path, judged_path):
     if not p.exists():
         raise SystemExit(f"missing {p}. Run eval_generation.py and eval_judge.py for this config first.")
 
 generation = json.loads(gen_path.read_text(encoding="utf-8"))
 judged = json.loads(judged_path.read_text(encoding="utf-8"))
+bad = sorted({r["id"] for r in generation["records"] if r["error"]}
+             | {j["id"] for j in judged["judgments"] if j["error"]})
+if bad:
+    raise SystemExit(f"refusing to log: {len(bad)} questions have errors ({bad[:5]}...). "
+                     "Rerun the failed steps first.")
 if generation["config"] != asdict(config):
     raise SystemExit("the generation file's config does not match the arguments you passed")
 

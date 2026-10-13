@@ -12,6 +12,7 @@ from app.evals.generation_run import is_refusal
 from app.evals.golden import GoldenItem
 from app.llm import get_judge
 from app.rag.loader import Document
+from app.llm_limits import QuotaExhausted, is_daily_quota as _is_daily_quota, is_rate_limit as _is_rate_limit
 
 JUDGE_CACHE_PATH = "data/cache/judgments.sqlite"
 PURE_REFUSAL_MAX_CHARS = 120
@@ -255,14 +256,4 @@ def summarize_judgments(js: list[Judgment]) -> dict:
         "mixed_refusal_rate": _rate([j.mixed_refusal for j in ok]),
     }
 
-class QuotaExhausted(RuntimeError):
-    """Raised when the judge API refuses further calls (rate limit or daily quota)."""
-
-
-def _is_rate_limit(err: str) -> bool:
-    e = err.lower()
-    return any(s in e for s in ("429", "ratelimit", "resource_exhausted", "quota"))
-
-
-def _is_daily_quota(err: str) -> bool:
-    return "perday" in err.lower().replace("_", "").replace(" ", "")
+  

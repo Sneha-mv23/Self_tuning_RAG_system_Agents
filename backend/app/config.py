@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     generator_base_url: str = "http://localhost:11434/v1"
     generator_api_key: str = "ollama"
     generator_model: str = "llama3:latest"
+    generator_min_interval_s: float = 0.0
+    generator_max_tokens: int = 256
 
     judge_base_url: str = "http://localhost:11434/v1"
     judge_api_key: str = "ollama"

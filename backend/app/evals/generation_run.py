@@ -13,12 +13,26 @@ from app.llm import get_generator
 from app.rag.chunker import count_tokens
 from app.rag.generator import build_prompt
 from app.rag.pipeline import RAGConfig
+from app.llm_limits import QuotaExhausted, is_daily_quota, is_rate_limit
 
 CACHE_PATH = "data/cache/generations.sqlite"
-MAX_TOKENS = 256
+MAX_TOKENS = settings.generator_max_tokens
 CONTEXT_LIMIT = 3800  # Ollama's default window is 4096; longer prompts get silently truncated
 STALL_S = 600  # a call slower than this almost certainly hit a sleeping laptop, not a slow model
 
+class GenerationAborted(RuntimeError):
+    """Raised when several calls in a row fail, which usually means a bad key or no connection."""
+
+
+class ErrorStreak:
+    def __init__(self, limit: int = 3):
+        self.limit, self.count = limit, 0
+
+    def record(self, error: str | None) -> None:
+        self.count = self.count + 1 if error else 0
+        if self.count >= self.limit:
+            raise GenerationAborted(f"{self.limit} calls in a row failed. Last error: {error}")
+        
 _REFUSAL_MARKERS = (
     "i don't know",
     "i do not know",
@@ -95,18 +109,36 @@ class GenerationRecord:
     used_chunks: list[dict]
 
 
+_last_call = 0.0
+
+
+def _pace(min_interval_s: float) -> None:
+    global _last_call
+    wait = min_interval_s - (time.monotonic() - _last_call)
+    if wait > 0:
+        time.sleep(wait)
+    _last_call = time.monotonic()
+
+
 def _call_llm(llm, prompt: str, retries: int = 2) -> tuple[str, float]:
     last: Exception | None = None
     for attempt in range(retries + 1):
+        _pace(settings.generator_min_interval_s)
         try:
             start = time.perf_counter()
             reply = llm.invoke(prompt)
             return str(reply.content).strip(), time.perf_counter() - start
         except Exception as e:  # noqa: BLE001 - any provider error should trigger a retry
             last = e
-            time.sleep(2 * (attempt + 1))
+            msg = f"{type(e).__name__}: {e}"
+            if is_rate_limit(msg):
+                # A daily quota will not recover by waiting. A per-minute one usually does.
+                if is_daily_quota(msg) or attempt >= 1:
+                    raise QuotaExhausted(msg) from e
+                time.sleep(20 * (attempt + 1))
+            else:
+                time.sleep(2 * (attempt + 1))
     raise last  # type: ignore[misc]
-
 
 def summarize_generation(records: list[GenerationRecord]) -> dict:
     ok = [r for r in records if r.error is None]
@@ -136,7 +168,7 @@ def run_generation(
     cache = cache or GenerationCache()
     index = evaluator.index_for(config.chunk_size, config.overlap)
     llm = get_generator(temperature=config.temperature, max_tokens=MAX_TOKENS)
-
+    streak = ErrorStreak()
     records: list[GenerationRecord] = []
     for n, it in enumerate(items, start=1):
         retrieved = index.search(it.question, config.top_k)
@@ -156,9 +188,11 @@ def run_generation(
                 answer, latency = _call_llm(llm, prompt)
                 if latency <= STALL_S:  # a stalled call has a meaningless latency, so don't cache it
                     cache.put(key, answer, latency)
+            except QuotaExhausted:
+                raise
             except Exception as e:  # noqa: BLE001
                 answer, latency, error = "", 0.0, f"{type(e).__name__}: {e}"
-
+        streak.record(error)
         records.append(GenerationRecord(
             id=it.id, type=it.type, question=it.question, answer=answer,
             prompt_tokens=prompt_tokens, latency_s=latency, cache_hit=cache_hit,
