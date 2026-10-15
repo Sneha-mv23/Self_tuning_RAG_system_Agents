@@ -4,3 +4,6 @@ $env:HF_HUB_OFFLINE = "1"
 $env:TRANSFORMERS_OFFLINE = "1"
 $env:OLLAMA_KEEP_ALIVE = "2h"
  
+
+
+ 

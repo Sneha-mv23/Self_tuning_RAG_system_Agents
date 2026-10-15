@@ -61,3 +61,11 @@ def test_different_judge_is_a_separate_run():
     log_run(conn, "dev", CONFIG, REPORT, GENERATION, JUDGED)
     log_run(conn, "dev", CONFIG, REPORT, GENERATION, {**JUDGED, "judge_model": "other"})
     assert len(list_runs(conn)) == 2
+
+def test_retriever_makes_a_separate_run_and_dense_matches_old_configs():
+    conn = connect(":memory:")
+    log_run(conn, "dev", CONFIG, REPORT, GENERATION, JUDGED)
+    log_run(conn, "dev", {**CONFIG, "retriever": "hybrid"}, REPORT, GENERATION, JUDGED)
+    assert [r["retriever"] for r in list_runs(conn)] == ["dense", "hybrid"]
+    log_run(conn, "dev", {**CONFIG, "retriever": "dense"}, REPORT, GENERATION, JUDGED)
+    assert len(list_runs(conn)) == 2  # explicit dense replaced the old-style config's row

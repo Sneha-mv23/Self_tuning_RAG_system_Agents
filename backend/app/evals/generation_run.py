@@ -166,7 +166,7 @@ def run_generation(
     verbose: bool = True,
 ) -> list[GenerationRecord]:
     cache = cache or GenerationCache()
-    index = evaluator.index_for(config.chunk_size, config.overlap)
+    index = evaluator.index_for(config.chunk_size, config.overlap, config.retriever)
     llm = get_generator(temperature=config.temperature, max_tokens=MAX_TOKENS)
     streak = ErrorStreak()
     records: list[GenerationRecord] = []

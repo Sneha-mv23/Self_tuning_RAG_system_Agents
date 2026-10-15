@@ -5,11 +5,12 @@ from pathlib import Path
 
 from app.db.experiments import connect, log_run
 from app.evals.golden import load_golden
+from app.evals.naming import run_name
 from app.evals.retrieval_eval import RetrievalEvaluator
 from app.evals.split import load_split, select
 from app.rag.generator import PROMPTS
 from app.rag.loader import load_corpus
-from app.rag.pipeline import RAGConfig
+from app.rag.pipeline import RETRIEVERS, RAGConfig
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--chunk-size", type=int, default=256)
@@ -17,6 +18,7 @@ ap.add_argument("--overlap", type=int, default=32)
 ap.add_argument("--top-k", type=int, default=4)
 ap.add_argument("--prompt", choices=list(PROMPTS), default="strict")
 ap.add_argument("--temperature", type=float, default=0.0)
+ap.add_argument("--retriever", choices=list(RETRIEVERS), default="dense")
 ap.add_argument("--split", choices=["dev", "test"], default="dev")
 ap.add_argument("--final", action="store_true")
 ap.add_argument("--runs-dir", default="experiments/runs")
@@ -26,9 +28,8 @@ if args.split == "test" and not args.final:
     raise SystemExit("The test split is reserved for the single final evaluation. Use --final only then.")
 
 config = RAGConfig(chunk_size=args.chunk_size, overlap=args.overlap, top_k=args.top_k,
-                   prompt=args.prompt, temperature=args.temperature)
-name = (f"{args.split}_cs{args.chunk_size}_ov{args.overlap}_k{args.top_k}"
-        f"_{args.prompt}_t{args.temperature}")
+                   prompt=args.prompt, temperature=args.temperature, retriever=args.retriever)
+name = run_name(args.split, config)
 gen_path = Path(args.runs_dir) / f"generation_{name}.json"
 judged_path = Path(args.runs_dir) / f"judged_{name}.json"
 for p in (gen_path, judged_path):
@@ -42,7 +43,7 @@ bad = sorted({r["id"] for r in generation["records"] if r["error"]}
 if bad:
     raise SystemExit(f"refusing to log: {len(bad)} questions have errors ({bad[:5]}...). "
                      "Rerun the failed steps first.")
-if generation["config"] != asdict(config):
+if {"retriever": "dense", **generation["config"]} != asdict(config):
     raise SystemExit("the generation file's config does not match the arguments you passed")
 
 docs = load_corpus()

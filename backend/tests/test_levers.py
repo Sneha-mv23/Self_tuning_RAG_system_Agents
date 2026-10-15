@@ -1,8 +1,8 @@
-from dataclasses import replace
-
 from app.evals.failure_classifier import QuestionOutcome
 from app.optimizer.levers import estimated_prompt_tokens, is_valid, neighbors, plan, recoverable_by_top_k
 from app.rag.pipeline import RAGConfig
+
+FIELDS = ("chunk_size", "overlap", "top_k", "prompt", "temperature", "retriever")
 
 
 def o(qid, **kw):
@@ -33,10 +33,9 @@ def test_invalid_configs():
 
 def test_neighbors_change_exactly_one_field():
     base = RAGConfig()
-    for dim in ("chunk_size", "overlap", "top_k", "prompt", "temperature"):
+    for dim in FIELDS:
         for cand in neighbors(base, dim):
-            changed = [f for f in ("chunk_size", "overlap", "top_k", "prompt", "temperature")
-                       if getattr(cand, f) != getattr(base, f)]
+            changed = [f for f in FIELDS if getattr(cand, f) != getattr(base, f)]
             assert changed == [dim]
             assert is_valid(cand)
 
@@ -52,9 +51,9 @@ def test_plan_orders_available_levers_first_and_picks_smallest_best_top_k():
     outcomes = [ranking_failure("a", 5), ranking_failure("b", 6),
                 over_refusal("c"), over_refusal("d"), over_refusal("e")]
     proposals = plan(outcomes, RAGConfig())
-    assert [p.lever for p in proposals[:2]] == ["prompt", "top_k"]
+    assert [p.lever for p in proposals] == ["prompt", "hybrid_search", "top_k", "reranker"]
     assert proposals[0].n_addressed == 3
-    top_k = proposals[1]
+    assert [c.retriever for c in proposals[1].candidates] == ["hybrid"]
+    top_k = proposals[2]
     assert top_k.n_addressed == 2 and [c.top_k for c in top_k.candidates] == [6]
-    assert all(not p.available and p.candidates == [] for p in proposals[2:])
-    assert {p.lever for p in proposals[2:]} == {"reranker", "hybrid_search"}
+    assert not proposals[3].available and proposals[3].candidates == []

@@ -1,11 +1,15 @@
 import time
 from dataclasses import dataclass
+from app.rag.hybrid import HybridIndex
 
 from app.llm import get_generator
 from app.rag.chunker import chunk_corpus, count_tokens
 from app.rag.generator import build_prompt
 from app.rag.index import Retrieved, VectorIndex
 from app.rag.loader import Document
+
+
+RETRIEVERS = ("dense", "hybrid")
 
 
 @dataclass(frozen=True)
@@ -15,6 +19,11 @@ class RAGConfig:
     top_k: int = 4
     prompt: str = "strict"
     temperature: float = 0.0
+    retriever: str = "dense"
+
+    def __post_init__(self):
+        if self.retriever not in RETRIEVERS:
+            raise ValueError(f"unknown retriever '{self.retriever}', choose from {RETRIEVERS}")
 
 
 @dataclass
@@ -30,7 +39,8 @@ class RAGPipeline:
     def __init__(self, docs: list[Document], config: RAGConfig | None = None):
         self.config = config or RAGConfig()
         chunks = chunk_corpus(docs, self.config.chunk_size, self.config.overlap)
-        self.index = VectorIndex.build(chunks)
+        dense = VectorIndex.build(chunks)
+        self.index = HybridIndex(dense) if self.config.retriever == "hybrid" else dense
         self.llm = get_generator(temperature=self.config.temperature)
 
     def retrieve(self, question: str) -> list[Retrieved]:

@@ -1,6 +1,7 @@
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from app.rag.hybrid import HybridIndex
 
 from app.evals.golden import GoldenItem
 from app.evals.retrieval_metrics import first_hit_rank, rank_needed
@@ -8,6 +9,7 @@ from app.rag.chunker import chunk_corpus
 from app.rag.index import VectorIndex
 from app.rag.loader import Document
 from app.rag.pipeline import RAGConfig
+from app.rag.hybrid import HybridIndex
 
 SEARCH_DEPTH = 20
 KS = (1, 3, 4, 5, 10, 20)
@@ -74,17 +76,21 @@ class RetrievalEvaluator:
 
     def __init__(self, docs: list[Document]):
         self.docs = docs
-        self._indexes: dict[tuple[int, int], VectorIndex] = {}
+        self._indexes: dict[tuple, object] = {}
 
-    def index_for(self, chunk_size: int, overlap: int) -> VectorIndex:
-        key = (chunk_size, overlap)
+    def index_for(self, chunk_size: int, overlap: int, retriever: str = "dense"):
+        key = (chunk_size, overlap, retriever)
         if key not in self._indexes:
-            chunks = chunk_corpus(self.docs, chunk_size, overlap)
-            self._indexes[key] = VectorIndex.build(chunks)
+            if retriever == "dense":
+                self._indexes[key] = VectorIndex.build(chunk_corpus(self.docs, chunk_size, overlap))
+            elif retriever == "hybrid":
+                self._indexes[key] = HybridIndex(self.index_for(chunk_size, overlap, "dense"))
+            else:
+                raise ValueError(f"unknown retriever '{retriever}'")
         return self._indexes[key]
 
     def evaluate(self, config: RAGConfig, items: list[GoldenItem]) -> RetrievalReport:
-        index = self.index_for(config.chunk_size, config.overlap)
+        index = self.index_for(config.chunk_size, config.overlap, config.retriever)
         results: list[QuestionRetrieval] = []
         for it in items:
             retrieved = index.search(it.question, SEARCH_DEPTH)

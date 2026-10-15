@@ -1,8 +1,8 @@
 from collections import Counter
 from dataclasses import dataclass, replace
-
+ 
 from app.evals.failure_classifier import QuestionOutcome, classify
-from app.rag.pipeline import RAGConfig
+from app.rag.pipeline import RETRIEVERS, RAGConfig
 
 CHUNK_SIZES = (128, 192, 256)  # above 256 the embedder cannot see the tail of each chunk
 OVERLAPS = (0, 16, 32)
@@ -17,6 +17,7 @@ DIMENSIONS = {
     "top_k": TOP_KS,
     "prompt": PROMPTS,
     "temperature": TEMPERATURES,
+    "retriever": RETRIEVERS,
 }
 
 # Which levers can address which failure category. Levers not in AVAILABLE are built in step 8.
@@ -31,8 +32,9 @@ DIAGNOSIS = {
     "hallucination": ["prompt", "temperature"],
     "unsupported_claims": ["prompt"],
 }
-AVAILABLE = {"top_k", "chunk_size", "overlap", "prompt", "temperature"}
 
+AVAILABLE = {"top_k", "chunk_size", "overlap", "prompt", "temperature", "hybrid_search"}
+LEVER_FIELD = {"hybrid_search": "retriever"}  # lever names that differ from the config field
 
 def estimated_prompt_tokens(c: RAGConfig) -> int:
     """Upper bound: each chunk is at most chunk_size tokens, plus ~15 for its header, plus instructions."""
@@ -42,7 +44,7 @@ def estimated_prompt_tokens(c: RAGConfig) -> int:
 def is_valid(c: RAGConfig) -> bool:
     return (
         c.chunk_size in CHUNK_SIZES and c.overlap in OVERLAPS and c.top_k in TOP_KS
-        and c.prompt in PROMPTS and c.temperature in TEMPERATURES
+        and c.prompt in PROMPTS and c.temperature in TEMPERATURES and c.retriever in RETRIEVERS
         and c.overlap <= c.chunk_size // 4
         and estimated_prompt_tokens(c) <= MAX_PROMPT_TOKENS
     )
@@ -82,7 +84,6 @@ class Proposal:
     candidates: list[RAGConfig]
     note: str
 
-
 def plan(outcomes: list[QuestionOutcome], config: RAGConfig) -> list[Proposal]:
     counts = Counter(classify(o, config.top_k) for o in outcomes)
     targets: dict[str, dict[str, int]] = {}
@@ -107,7 +108,7 @@ def plan(outcomes: list[QuestionOutcome], config: RAGConfig) -> list[Proposal]:
                 for k in recoverable
             )
         else:
-            candidates = neighbors(config, lever) if available else []
+            candidates = neighbors(config, LEVER_FIELD.get(lever, lever)) if available else []
             n = sum(addr.values())
             note = "targets " + ", ".join(f"{c} {v}" for c, v in addr.items())
         proposals.append(Proposal(lever, n, available, candidates, note))

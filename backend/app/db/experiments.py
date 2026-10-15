@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS runs (
     created_at REAL NOT NULL,
     split TEXT NOT NULL,
     chunk_size INTEGER, overlap INTEGER, top_k INTEGER, prompt TEXT, temperature REAL,
+    retriever TEXT NOT NULL DEFAULT 'dense',
     config_key TEXT NOT NULL,
     generator_model TEXT NOT NULL,
     judge_model TEXT NOT NULL,
@@ -50,6 +51,9 @@ def connect(path: str = DB_PATH) -> sqlite3.Connection:
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
+    if "retriever" not in {row["name"] for row in conn.execute("PRAGMA table_info(runs)")}:
+        conn.execute("ALTER TABLE runs ADD COLUMN retriever TEXT NOT NULL DEFAULT 'dense'")
+        conn.commit()
     return conn
 
 
@@ -66,7 +70,9 @@ def _b(x):
 
 def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generation: dict, judged: dict) -> int:
     """Insert one run. Logging the same (split, config, models) again replaces the old row."""
-    config_key = json.dumps(config, sort_keys=True)
+        # a config without a retriever means dense, and dense runs keep their old key so they still match
+    key_cfg = {k: v for k, v in config.items() if not (k == "retriever" and v == "dense")}
+    config_key = json.dumps(key_cfg, sort_keys=True)
     gen_model, judge_model = generation["model"], judged["judge_model"]
 
     old = conn.execute(
@@ -86,6 +92,7 @@ def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generati
         "created_at": time.time(), "split": split,
         "chunk_size": config["chunk_size"], "overlap": config["overlap"], "top_k": config["top_k"],
         "prompt": config["prompt"], "temperature": config["temperature"],
+        "retriever": config.get("retriever", "dense"),
         "config_key": config_key, "generator_model": gen_model, "judge_model": judge_model,
         "n_answerable": report.n_answerable, "n_unanswerable": report.n_unanswerable,
         "recall_at_k": recall_at(report, config["top_k"]), "mrr": report.mrr,

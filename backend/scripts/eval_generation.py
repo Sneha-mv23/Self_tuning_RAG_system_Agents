@@ -4,9 +4,10 @@ from app.evals.generation_run import GenerationAborted,GenerationCache, run_gene
 from app.evals.golden import load_golden
 from app.evals.retrieval_eval import RetrievalEvaluator
 from app.evals.split import load_split, select
+from app.evals.naming import run_name
 from app.rag.generator import PROMPTS
 from app.rag.loader import load_corpus
-from app.rag.pipeline import RAGConfig
+from app.rag.pipeline import RAGConfig,RETRIEVERS
 from app.llm_limits import QuotaExhausted
 
 ap = argparse.ArgumentParser()
@@ -20,6 +21,7 @@ ap.add_argument("--final", action="store_true", help="required to touch the test
 ap.add_argument("--limit", type=int, default=None, help="only the first N questions (for a quick test)")
 ap.add_argument("--out", default=None)
 ap.add_argument("--runs-dir", default="experiments/runs")
+ap.add_argument("--retriever", choices=list(RETRIEVERS), default="dense")
 args = ap.parse_args()
 
 if args.split == "test" and not args.final:
@@ -31,7 +33,7 @@ if args.limit:
     items = items[: args.limit]
 
 config = RAGConfig(chunk_size=args.chunk_size, overlap=args.overlap, top_k=args.top_k,
-                   prompt=args.prompt, temperature=args.temperature)
+                   prompt=args.prompt, temperature=args.temperature, retriever=args.retriever)
 cache = GenerationCache()
 try:
     records = run_generation(RetrievalEvaluator(docs), config, items, cache=cache)
@@ -49,7 +51,6 @@ print(f"latency: mean {s['mean_latency_s']:.1f}s, p95 {s['p95_latency_s']:.1f}s 
 print(f"refusal on unanswerable (rough): {s['refusal_rate_unanswerable']:.2f} | "
       f"false refusal on answerable (rough): {s['false_refusal_rate_answerable']:.2f}")
 
-out = args.out or (f"{args.runs_dir}/generation_{args.split}_cs{args.chunk_size}_ov{args.overlap}"
-                   f"_k{args.top_k}_{args.prompt}_t{args.temperature}.json")
+out = args.out or f"{args.runs_dir}/generation_{run_name(args.split, config)}.json"
 save_generation(records, config, out)
 print(f"saved {out}")
