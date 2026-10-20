@@ -1,0 +1,122 @@
+{
+  "seed": 13,
+  "pool": {
+    "correct_yes": 38,
+    "faithful_yes": 38,
+    "judged_total": 38
+  },
+  "tasks": [
+    {
+      "task": "correct",
+      "id": "q037"
+    },
+    {
+      "task": "faithful",
+      "id": "q070"
+    },
+    {
+      "task": "correct",
+      "id": "q021"
+    },
+    {
+      "task": "correct",
+      "id": "q088"
+    },
+    {
+      "task": "correct",
+      "id": "q086"
+    },
+    {
+      "task": "correct",
+      "id": "q042"
+    },
+    {
+      "task": "correct",
+      "id": "q061"
+    },
+    {
+      "task": "faithful",
+      "id": "q037"
+    },
+    {
+      "task": "correct",
+      "id": "q003"
+    },
+    {
+      "task": "correct",
+      "id": "q018"
+    },
+    {
+      "task": "correct",
+      "id": "q029"
+    },
+    {
+      "task": "correct",
+      "id": "q038"
+    },
+    {
+      "task": "faithful",
+      "id": "q018"
+    },
+    {
+      "task": "faithful",
+      "id": "q088"
+    },
+    {
+      "task": "correct",
+      "id": "q077"
+    },
+    {
+      "task": "correct",
+      "id": "q005"
+    },
+    {
+      "task": "faithful",
+      "id": "q021"
+    },
+    {
+      "task": "correct",
+      "id": "q035"
+    },
+    {
+      "task": "correct",
+      "id": "q068"
+    },
+    {
+      "task": "faithful",
+      "id": "q008"
+    },
+    {
+      "task": "correct",
+      "id": "q009"
+    },
+    {
+      "task": "correct",
+      "id": "q083"
+    },
+    {
+      "task": "correct",
+      "id": "q065"
+    },
+    {
+      "task": "correct",
+      "id": "q043"
+    },
+    {
+      "task": "faithful",
+      "id": "q068"
+    },
+    {
+      "task": "correct",
+      "id": "q032"
+    },
+    {
+      "task": "correct",
+      "id": "q007"
+    },
+    {
+      "task": "faithful",
+      "id": "q029"
+    }
+  ]
+}

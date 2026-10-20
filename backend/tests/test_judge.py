@@ -3,7 +3,7 @@ import pytest
 
 from app.evals.golden import Evidence, GoldenItem
 from app.evals.judge import (
-    Judge, JudgeCache, build_jobs, context_from_spans, is_mixed_refusal,
+    Judge, JudgeCache, build_jobs, BudgetReached,context_from_spans, is_mixed_refusal,
     is_pure_refusal, judge_record, parse_verdict,QuotaExhausted,strip_citations,
 )
 from app.rag.loader import Document
@@ -133,3 +133,12 @@ def test_faithful_prompt_has_no_citation_markers():
     jobs = dict(build_jobs(rec, item(), DOCS))
     assert "[3]" not in jobs["faithful"]
     assert "[3]" in jobs["correct"]
+    
+
+def test_budget_cap_stops_before_calling(tmp_path):
+    llm = FakeLLM('{"verdict": "yes", "reason": "ok"}')
+    judge = Judge(cache=JudgeCache(str(tmp_path / "j.sqlite")), llm=llm, min_interval_s=0, max_calls=1)
+    judge.ask("correct", "p1")
+    with pytest.raises(BudgetReached):
+        judge.ask("correct", "p2")
+    assert llm.calls == 1

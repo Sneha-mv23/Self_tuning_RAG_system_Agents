@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 from app.config import settings
 from app.evals.golden import load_golden
-from app.evals.judge import Judge, QuotaExhausted, build_jobs, judge_record, summarize_judgments
+from app.evals.judge import Judge,BudgetReached, QuotaExhausted, build_jobs, judge_record, summarize_judgments
 from app.rag.loader import load_corpus
 
 ap = argparse.ArgumentParser()
@@ -14,6 +14,7 @@ ap.add_argument("--gen", default="experiments/runs/generation_dev_cs256_ov32_k4_
 ap.add_argument("--limit", type=int, default=None)
 ap.add_argument("--dry-run", action="store_true", help="only count the judge calls needed")
 ap.add_argument("--out", default=None)
+ap.add_argument("--max-calls", type=int, default=None)
 args = ap.parse_args()
 
 docs = load_corpus()
@@ -23,7 +24,7 @@ records = json.loads(Path(args.gen).read_text(encoding="utf-8"))["records"]
 if args.limit:
     records = records[: args.limit]
 
-judge = Judge()
+judge = Judge(max_calls=args.max_calls)
 print(f"judge: {settings.judge_model} @ {urlparse(settings.judge_base_url).netloc} "
       f"| min interval {judge.min_interval_s}s")
 
@@ -52,7 +53,7 @@ try:
             tags.append(f"ERROR {j.error[:80]}")
         print(f"[{n}/{len(records)}] {j.id} [{j.type}] correct={j.correct} faithful={j.faithful} "
               + " ".join(tags), flush=True)
-except QuotaExhausted as e:
+except (QuotaExhausted, BudgetReached) as e:
     print(f"\nSTOPPED: judge quota exhausted after {len(judgments)} of {len(records)} questions.")
     print(f"  {str(e)[:300]}")
     print("Finished verdicts are cached. Rerun the same command once the quota resets and it continues.")
