@@ -109,6 +109,8 @@ def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generati
             "generation_summary": gs, "judge_summary": js,
         }),
     }
+    if old:
+         values["id"] = old[0]["id"]  # a replaced run keeps its id, so logged references stay valid
     cols = ", ".join(values)
     marks = ", ".join(f":{k}" for k in values)
     run_id = conn.execute(f"INSERT INTO runs ({cols}) VALUES ({marks})", values).lastrowid

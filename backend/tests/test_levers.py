@@ -57,3 +57,17 @@ def test_plan_orders_available_levers_first_and_picks_smallest_best_top_k():
     top_k = proposals[2]
     assert top_k.n_addressed == 2 and [c.top_k for c in top_k.candidates] == [6]
     assert not proposals[3].available and proposals[3].candidates == []
+
+def failed_to_decline(qid):
+    return o(qid, type="unanswerable", rank_needed=None, evidence_ranks=[], answer_correct=False, faithful=None)
+
+
+def _prompt_candidates(outcomes, prompt):
+    proposal = [p for p in plan(outcomes, RAGConfig(prompt=prompt)) if p.lever == "prompt"][0]
+    return [c.prompt for c in proposal.candidates]
+
+
+def test_prompt_direction_depends_on_the_failure():
+    assert _prompt_candidates([failed_to_decline("a")], "strict") == []  # already the strictest
+    assert _prompt_candidates([failed_to_decline("a")], "basic") == ["strict"]
+    assert _prompt_candidates([over_refusal("a")], "strict") == ["basic"]

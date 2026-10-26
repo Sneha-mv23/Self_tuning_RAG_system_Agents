@@ -69,3 +69,9 @@ def test_retriever_makes_a_separate_run_and_dense_matches_old_configs():
     assert [r["retriever"] for r in list_runs(conn)] == ["dense", "hybrid"]
     log_run(conn, "dev", {**CONFIG, "retriever": "dense"}, REPORT, GENERATION, JUDGED)
     assert len(list_runs(conn)) == 2  # explicit dense replaced the old-style config's row
+
+def test_replacing_a_run_keeps_its_id():
+    conn = connect(":memory:")
+    first = log_run(conn, "dev", CONFIG, REPORT, GENERATION, JUDGED)
+    second = log_run(conn, "dev", CONFIG, REPORT, GENERATION, JUDGED)
+    assert first == second

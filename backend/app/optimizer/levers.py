@@ -83,6 +83,22 @@ class Proposal:
     available: bool
     candidates: list[RAGConfig]
     note: str
+# PROMPTS is ordered strictest first. Failures that need more caution cannot be fixed by a looser prompt.
+STRICTER = {"failed_to_decline", "hallucination", "unsupported_claims", "mixed_refusal"}
+LOOSER = {"over_refusal"}
+
+
+def directed_candidates(config: RAGConfig, field: str, categories: set[str]) -> list[RAGConfig]:
+    """Neighbors of config along one field. For the prompt, keep only the direction that can help."""
+    cands = neighbors(config, field)
+    if field != "prompt":
+        return cands
+    current = PROMPTS.index(config.prompt)
+    if categories <= STRICTER:
+        return [c for c in cands if PROMPTS.index(c.prompt) < current]
+    if categories <= LOOSER:
+        return [c for c in cands if PROMPTS.index(c.prompt) > current]
+    return cands
 
 def plan(outcomes: list[QuestionOutcome], config: RAGConfig) -> list[Proposal]:
     counts = Counter(classify(o, config.top_k) for o in outcomes)
@@ -108,7 +124,7 @@ def plan(outcomes: list[QuestionOutcome], config: RAGConfig) -> list[Proposal]:
                 for k in recoverable
             )
         else:
-            candidates = neighbors(config, LEVER_FIELD.get(lever, lever)) if available else []
+            candidates = directed_candidates(config, LEVER_FIELD.get(lever, lever), set(addr)) if available else []
             n = sum(addr.values())
             note = "targets " + ", ".join(f"{c} {v}" for c, v in addr.items())
         proposals.append(Proposal(lever, n, available, candidates, note))
