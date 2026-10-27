@@ -43,3 +43,8 @@ def test_error_streak_stops_after_three_in_a_row():
     s.record("e"); s.record("e"); s.record(None); s.record("e"); s.record("e")
     with pytest.raises(GenerationAborted):
         s.record("e")
+
+def test_replicate_changes_the_key_but_zero_keeps_it():
+    base = make_key("m", "u", 0.0, 256, "p")
+    assert base == make_key("m", "u", 0.0, 256, "p", replicate=0)
+    assert base != make_key("m", "u", 0.0, 256, "p", replicate=1)

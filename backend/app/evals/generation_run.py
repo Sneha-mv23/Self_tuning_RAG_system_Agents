@@ -58,14 +58,13 @@ def percentile(values: list[float], p: float) -> float:
     return s[max(0, math.ceil(p / 100 * len(s)) - 1)]
 
 
-def make_key(model: str, base_url: str, temperature: float, max_tokens: int, prompt: str) -> str:
-    payload = json.dumps(
-        {"model": model, "base_url": base_url, "temperature": temperature,
-         "max_tokens": max_tokens, "prompt": prompt},
-        sort_keys=True,
-    )
-    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
-
+def make_key(model: str, base_url: str, temperature: float, max_tokens: int, prompt: str,
+             replicate: int = 0) -> str:
+    fields = {"model": model, "base_url": base_url, "temperature": temperature,
+              "max_tokens": max_tokens, "prompt": prompt}
+    if replicate:
+        fields["replicate"] = replicate  # replicate 0 keeps the original keys, so cached answers stay valid
+    return hashlib.sha256(json.dumps(fields, sort_keys=True).encode("utf-8")).hexdigest()
 
 class GenerationCache:
     def __init__(self, path: str = CACHE_PATH):
@@ -164,6 +163,7 @@ def run_generation(
     items: list[GoldenItem],
     cache: GenerationCache | None = None,
     verbose: bool = True,
+    replicate: int = 0,
 ) -> list[GenerationRecord]:
     cache = cache or GenerationCache()
     index = evaluator.index_for(config.chunk_size, config.overlap, config.retriever)
@@ -175,7 +175,7 @@ def run_generation(
         prompt = build_prompt(config.prompt, it.question, retrieved)
         prompt_tokens = count_tokens(prompt)
         key = make_key(settings.generator_model, settings.generator_base_url,
-                       config.temperature, MAX_TOKENS, prompt)
+                       config.temperature, MAX_TOKENS, prompt, replicate)
 
         error = None
         hit = cache.get(key)

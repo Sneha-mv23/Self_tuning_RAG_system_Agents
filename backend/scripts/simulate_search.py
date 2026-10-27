@@ -1,5 +1,6 @@
 import argparse
 import random
+from collections import Counter
 from statistics import mean, median
 
 from app.evals.golden import load_golden
@@ -78,3 +79,14 @@ for lever, c, gain in guided["path"]:
     print(f"  {lever}: {c.retriever} cs/ov/k={c.chunk_size}/{c.overlap}/{c.top_k}  (+{gain} covered)")
 stuck = sum(1 for b in blind if first_reach(b["curve"]) is None)
 print(f"\nblind hill-climb ended below the max in {stuck} of {args.seeds} runs")
+
+
+
+ends = Counter()
+for b in blind:
+    if first_reach(b["curve"]) is None:
+        c = b["path"][-1][1] if b["path"] else start
+        ends[(c.retriever, c.chunk_size, c.overlap, c.top_k)] += 1
+print("\nwhere the stuck blind runs end (retriever, chunk, overlap, top_k): count")
+for key, n in ends.most_common(5):
+    print(f"  {key}: {n}")
