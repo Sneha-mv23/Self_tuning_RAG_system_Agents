@@ -24,8 +24,8 @@ class ExperimentResult:
     detail: dict[str, str] = field(default_factory=dict)  # question id -> error message
 
 
-def _attempt(evaluator, config, items, gen_cache, judge):
-    records = run_generation(evaluator, config, items, cache=gen_cache, verbose=False)
+def _attempt(evaluator, config, items, gen_cache, judge, replicate: int = 0):
+    records = run_generation(evaluator, config, items, cache=gen_cache, verbose=False, replicate=replicate)
     docs_by_id = {d.doc_id: d for d in evaluator.docs}
     by_id = {i.id: i for i in items}
     gen_dicts = [asdict(r) for r in records]
@@ -36,7 +36,8 @@ def _attempt(evaluator, config, items, gen_cache, judge):
     return records, gen_dicts, judgments, detail, new_gen
 
 
-def run_experiment(conn, evaluator, config, items, gen_cache, judge, split: str = "dev") -> ExperimentResult:
+def run_experiment(conn, evaluator, config, items, gen_cache, judge, split: str = "dev",
+                   replicate: int = 0) -> ExperimentResult:
     """Retrieval, generation and judging for one config, logged like any other run.
     Failed questions get one retry (everything finished is cached, so the retry is cheap).
     A run that still has errors is NOT logged, so a partial result can never be compared."""
@@ -46,7 +47,7 @@ def run_experiment(conn, evaluator, config, items, gen_cache, judge, split: str 
     for attempt in range(2):
         if attempt:
             time.sleep(RETRY_PAUSE_S)
-        records, gen_dicts, judgments, detail, n = _attempt(evaluator, config, items, gen_cache, judge)
+        records, gen_dicts, judgments, detail, n = _attempt(evaluator, config, items, gen_cache, judge, replicate)
         new_gen += n
         if not detail:
             break
@@ -58,5 +59,5 @@ def run_experiment(conn, evaluator, config, items, gen_cache, judge, split: str 
                   "summary": summarize_generation(records), "records": gen_dicts}
     judged = {"judge_model": settings.judge_model, "summary": summarize_judgments(judgments),
               "judgments": [asdict(j) for j in judgments]}
-    run_id = log_run(conn, split, asdict(config), report, generation, judged)
+    run_id = log_run(conn, split, asdict(config), report, generation, judged, replicate=replicate)
     return ExperimentResult(run_id, [], new_gen, new_judge)

@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS runs (
     split TEXT NOT NULL,
     chunk_size INTEGER, overlap INTEGER, top_k INTEGER, prompt TEXT, temperature REAL,
     retriever TEXT NOT NULL DEFAULT 'dense',
+    replicate INTEGER NOT NULL DEFAULT 0,
     config_key TEXT NOT NULL,
     generator_model TEXT NOT NULL,
     judge_model TEXT NOT NULL,
@@ -51,9 +52,12 @@ def connect(path: str = DB_PATH) -> sqlite3.Connection:
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.executescript(SCHEMA)
-    if "retriever" not in {row["name"] for row in conn.execute("PRAGMA table_info(runs)")}:
+    cols = {row["name"] for row in conn.execute("PRAGMA table_info(runs)")}
+    if "retriever" not in cols:
         conn.execute("ALTER TABLE runs ADD COLUMN retriever TEXT NOT NULL DEFAULT 'dense'")
-        conn.commit()
+    if "replicate" not in cols:
+        conn.execute("ALTER TABLE runs ADD COLUMN replicate INTEGER NOT NULL DEFAULT 0")
+    conn.commit()
     return conn
 
 
@@ -68,16 +72,19 @@ def _b(x):
     return None if x is None else int(bool(x))
 
 
-def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generation: dict, judged: dict) -> int:
-    """Insert one run. Logging the same (split, config, models) again replaces the old row."""
-        # a config without a retriever means dense, and dense runs keep their old key so they still match
+def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generation: dict, judged: dict,
+            replicate: int = 0) -> int:
+    """Insert one run. Logging the same (split, config, models, replicate) again replaces the old row
+    and keeps its id."""
+    # a config without a retriever means dense, and dense runs keep their old key so they still match
     key_cfg = {k: v for k, v in config.items() if not (k == "retriever" and v == "dense")}
     config_key = json.dumps(key_cfg, sort_keys=True)
     gen_model, judge_model = generation["model"], judged["judge_model"]
 
     old = conn.execute(
-        "SELECT id FROM runs WHERE split=? AND config_key=? AND generator_model=? AND judge_model=?",
-        (split, config_key, gen_model, judge_model),
+        "SELECT id FROM runs WHERE split=? AND config_key=? AND generator_model=? AND judge_model=? "
+        "AND replicate=?",
+        (split, config_key, gen_model, judge_model, replicate),
     ).fetchall()
     for row in old:
         conn.execute("DELETE FROM question_results WHERE run_id=?", (row["id"],))
@@ -92,7 +99,7 @@ def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generati
         "created_at": time.time(), "split": split,
         "chunk_size": config["chunk_size"], "overlap": config["overlap"], "top_k": config["top_k"],
         "prompt": config["prompt"], "temperature": config["temperature"],
-        "retriever": config.get("retriever", "dense"),
+        "retriever": config.get("retriever", "dense"), "replicate": replicate,
         "config_key": config_key, "generator_model": gen_model, "judge_model": judge_model,
         "n_answerable": report.n_answerable, "n_unanswerable": report.n_unanswerable,
         "recall_at_k": recall_at(report, config["top_k"]), "mrr": report.mrr,
@@ -110,7 +117,7 @@ def log_run(conn: sqlite3.Connection, split: str, config: dict, report, generati
         }),
     }
     if old:
-         values["id"] = old[0]["id"]  # a replaced run keeps its id, so logged references stay valid
+        values["id"] = old[0]["id"]  # a replaced run keeps its id, so logged references stay valid
     cols = ", ".join(values)
     marks = ", ".join(f":{k}" for k in values)
     run_id = conn.execute(f"INSERT INTO runs ({cols}) VALUES ({marks})", values).lastrowid

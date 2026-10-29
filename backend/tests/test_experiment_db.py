@@ -75,3 +75,11 @@ def test_replacing_a_run_keeps_its_id():
     first = log_run(conn, "dev", CONFIG, REPORT, GENERATION, JUDGED)
     second = log_run(conn, "dev", CONFIG, REPORT, GENERATION, JUDGED)
     assert first == second
+
+def test_replicates_are_separate_runs_and_rerunning_one_keeps_its_id():
+    conn = connect(":memory:")
+    a = log_run(conn, "test", CONFIG, REPORT, GENERATION, JUDGED, replicate=0)
+    b = log_run(conn, "test", CONFIG, REPORT, GENERATION, JUDGED, replicate=1)
+    assert a != b and len(list_runs(conn)) == 2
+    assert log_run(conn, "test", CONFIG, REPORT, GENERATION, JUDGED, replicate=1) == b
+    assert len(list_runs(conn)) == 2

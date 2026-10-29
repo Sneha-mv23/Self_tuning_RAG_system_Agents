@@ -1,0 +1,15 @@
+{
+  "completed": [
+    {
+      "config": "baseline",
+      "replicate": 0,
+      "run_id": 6,
+      "finished": "2026-10-29 11:40:16"
+    }
+  ],
+  "fingerprint": "8321798aa4ec64e0c3ca179cd79fcadf81dce27603510c7d8a3d7d9bb7d7d3b1",
+  "models": [
+    "gemini-3.5-flash-lite",
+    "gemini-3.5-flash-lite"
+  ]
+}

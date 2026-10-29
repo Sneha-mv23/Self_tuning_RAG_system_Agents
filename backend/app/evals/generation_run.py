@@ -218,14 +218,15 @@ def save_generation(records: list[GenerationRecord], config: RAGConfig, path: st
     }
     Path(path).write_text(json.dumps(out, indent=2), encoding="utf-8")
 
-def count_uncached(evaluator, config: RAGConfig, items: list[GoldenItem], cache: GenerationCache) -> int:
+def count_uncached(evaluator, config: RAGConfig, items: list[GoldenItem], cache: GenerationCache,
+                   replicate: int = 0) -> int:
     """How many generation calls this config would really need (cached answers are free)."""
     index = evaluator.index_for(config.chunk_size, config.overlap, config.retriever)
     n = 0
     for it in items:
         prompt = build_prompt(config.prompt, it.question, index.search(it.question, config.top_k))
         key = make_key(settings.generator_model, settings.generator_base_url,
-                       config.temperature, MAX_TOKENS, prompt)
+                       config.temperature, MAX_TOKENS, prompt, replicate)
         if cache.get(key) is None:
             n += 1
     return n
