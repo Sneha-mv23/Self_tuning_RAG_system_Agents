@@ -5,6 +5,36 @@
       "replicate": 0,
       "run_id": 6,
       "finished": "2026-10-29 11:40:16"
+    },
+    {
+      "config": "optimized",
+      "replicate": 0,
+      "run_id": 7,
+      "finished": "2026-11-05 11:35:00"
+    },
+    {
+      "config": "cheap",
+      "replicate": 0,
+      "run_id": 8,
+      "finished": "2026-11-10 10:52:21"
+    },
+    {
+      "config": "baseline",
+      "replicate": 1,
+      "run_id": 9,
+      "finished": "2026-11-10 10:59:49"
+    },
+    {
+      "config": "optimized",
+      "replicate": 1,
+      "run_id": 10,
+      "finished": "2026-11-10 11:09:55"
+    },
+    {
+      "config": "cheap",
+      "replicate": 1,
+      "run_id": 11,
+      "finished": "2026-11-11 10:23:29"
     }
   ],
   "fingerprint": "8321798aa4ec64e0c3ca179cd79fcadf81dce27603510c7d8a3d7d9bb7d7d3b1",
