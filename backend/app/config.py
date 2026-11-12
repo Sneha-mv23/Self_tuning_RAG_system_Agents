@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
 
     database_url: str = "sqlite:///./experiments.db"
+    cors_origins: str = "http://localhost:5173"
+    ask_per_ip_per_hour: int = 5
+    ask_daily_cap: int = 100
 
 
 settings = Settings()
