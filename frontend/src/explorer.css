@@ -1,0 +1,32 @@
+:root {
+  --ok: #1b7f4b; --warn: #a15c00; --gen: #7b3fb0; --bad: #b3261e; --changed-bg: #fff4d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ok: #6fd69b; --warn: #ffb74d; --gen: #c9a0f0; --bad: #ff8a80; --changed-bg: #3a3320; }
+}
+nav.tabs { display: flex; gap: 8px; margin: 20px 0 0; border-bottom: 1px solid var(--line); }
+nav.tabs button { background: none; border: none; border-bottom: 2px solid transparent; padding: 8px 14px;
+  font: inherit; color: var(--muted); cursor: pointer; }
+nav.tabs button.active { color: var(--fg); border-bottom-color: var(--accent); font-weight: 600; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.controls label { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--muted); }
+.controls select, .controls input { font: inherit; font-size: 13px; padding: 5px 8px; max-width: 360px;
+  background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
+.chip { font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 999px; cursor: pointer;
+  background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+.chip.active { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+details.q { border: 1px solid var(--line); border-radius: 8px; margin: 6px 0; padding: 6px 12px; }
+details.q summary { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; cursor: pointer; }
+.qid { font-family: monospace; font-weight: 600; }
+.qtype { font-size: 12px; color: var(--muted); }
+.qtext { flex: 1 1 320px; }
+.tag { padding: 1px 8px; border-radius: 999px; font-size: 12px; border: 1px solid currentColor; }
+.stage-none { color: var(--ok); }
+.stage-retrieval { color: var(--warn); }
+.stage-generation { color: var(--gen); }
+.stage-error { color: var(--bad); }
+.changed { font-size: 12px; padding: 1px 8px; border-radius: 6px; background: var(--changed-bg); }
+.q-body { margin: 8px 0 6px; font-size: 13px; }
+.answer { white-space: pre-wrap; background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+  padding: 8px 10px; margin: 8px 0; font: inherit; }

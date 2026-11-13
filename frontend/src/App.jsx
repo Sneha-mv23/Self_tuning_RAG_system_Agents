@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react'
+import FailureExplorer from './components/FailureExplorer.jsx'
 import Overview from './components/Overview.jsx'
 import { loadResults } from './lib/api.js'
 import './styles.css'
+import './explorer.css'
+
+const TABS = [['overview', 'Overview'], ['failures', 'Failure explorer']]
 
 export default function App() {
   const [state, setState] = useState({ status: 'loading' })
+  const [tab, setTab] = useState('overview')
 
   useEffect(() => {
     loadResults()
@@ -27,7 +32,19 @@ export default function App() {
       </header>
       {state.status === 'loading' && <p>Loading results...</p>}
       {state.status === 'error' && <p className="error">{state.message}</p>}
-      {state.status === 'ready' && <Overview data={state.data} />}
+      {state.status === 'ready' && (
+        <>
+          <nav className="tabs">
+            {TABS.map(([id, label]) => (
+              <button key={id} className={tab === id ? 'active' : ''} onClick={() => setTab(id)}>
+                {label}
+              </button>
+            ))}
+          </nav>
+          {tab === 'overview' && <Overview data={state.data} />}
+          {tab === 'failures' && <FailureExplorer data={state.data} />}
+        </>
+      )}
     </main>
   )
 }
