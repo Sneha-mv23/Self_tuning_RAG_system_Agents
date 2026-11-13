@@ -1,0 +1,4137 @@
+{
+ "generated": "2026-11-11 10:34:16",
+ "note": "dev per-question rows only; the test split is exported as aggregates (the runs table).",
+ "runs": [
+  {
+   "id": 1,
+   "created_at": 1791525074.3401752,
+   "split": "dev",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "llama3:latest",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 47,
+   "n_unanswerable": 11,
+   "recall_at_k": 0.7659574468085106,
+   "mrr": 0.5911347517730496,
+   "answer_correctness": 0.574468085106383,
+   "faithfulness": 0.9642857142857143,
+   "proper_refusal": 1.0,
+   "pure_refusal_answerable": 0.40425531914893614,
+   "mixed_refusal": 0.034482758620689655,
+   "median_latency_s": 86.54685340000015,
+   "p95_latency_s": 145.69758860000002,
+   "mean_prompt_tokens": 1042.8103448275863,
+   "retriever": "dense",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.425531914893617,
+     "3": 0.7021276595744681,
+     "4": 0.7659574468085106,
+     "5": 0.8297872340425532,
+     "10": 0.8936170212765957,
+     "20": 0.8936170212765957
+    },
+    "evidence_recall": {
+     "1": 0.44680851063829785,
+     "3": 0.723404255319149,
+     "4": 0.776595744680851,
+     "5": 0.8297872340425532,
+     "10": 0.9042553191489362,
+     "20": 0.925531914893617
+    },
+    "recall_by_type": {
+     "factual": 0.8928571428571429,
+     "multi_hop": 0.16666666666666666,
+     "paraphrase": 0.7692307692307693
+    },
+    "generation_summary": {
+     "n": 58,
+     "errors": 0,
+     "cache_hits": 56,
+     "over_context": 0,
+     "mean_latency_s": 94.4566185293102,
+     "p95_latency_s": 145.69758860000002,
+     "mean_prompt_tokens": 1042.8103448275863,
+     "refusal_rate_unanswerable": 1.0,
+     "false_refusal_rate_answerable": 0.44680851063829785
+    },
+    "judge_summary": {
+     "n": 58,
+     "errors": 0,
+     "answer_correctness": 0.574468085106383,
+     "faithfulness": 0.9642857142857143,
+     "n_faithfulness_scored": 28,
+     "proper_refusal_rate_unanswerable": 1.0,
+     "pure_refusal_rate_answerable": 0.40425531914893614,
+     "mixed_refusal_rate": 0.034482758620689655
+    }
+   },
+   "passes": 36,
+   "n_questions": 58
+  },
+  {
+   "id": 2,
+   "created_at": 1791525093.1322412,
+   "split": "dev",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "prompt": "basic",
+   "temperature": 0.0,
+   "generator_model": "llama3:latest",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 47,
+   "n_unanswerable": 11,
+   "recall_at_k": 0.7659574468085106,
+   "mrr": 0.5911347517730496,
+   "answer_correctness": 0.7872340425531915,
+   "faithfulness": 0.851063829787234,
+   "proper_refusal": 0.6363636363636364,
+   "pure_refusal_answerable": 0.0,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 97.2719363000001,
+   "p95_latency_s": 165.2268122999999,
+   "mean_prompt_tokens": 1001.8103448275862,
+   "retriever": "dense",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.425531914893617,
+     "3": 0.7021276595744681,
+     "4": 0.7659574468085106,
+     "5": 0.8297872340425532,
+     "10": 0.8936170212765957,
+     "20": 0.8936170212765957
+    },
+    "evidence_recall": {
+     "1": 0.44680851063829785,
+     "3": 0.723404255319149,
+     "4": 0.776595744680851,
+     "5": 0.8297872340425532,
+     "10": 0.9042553191489362,
+     "20": 0.925531914893617
+    },
+    "recall_by_type": {
+     "factual": 0.8928571428571429,
+     "multi_hop": 0.16666666666666666,
+     "paraphrase": 0.7692307692307693
+    },
+    "generation_summary": {
+     "n": 58,
+     "errors": 0,
+     "cache_hits": 57,
+     "over_context": 0,
+     "mean_latency_s": 106.45324121724134,
+     "p95_latency_s": 165.2268122999999,
+     "mean_prompt_tokens": 1001.8103448275862,
+     "refusal_rate_unanswerable": 0.0,
+     "false_refusal_rate_answerable": 0.0
+    },
+    "judge_summary": {
+     "n": 58,
+     "errors": 0,
+     "answer_correctness": 0.7872340425531915,
+     "faithfulness": 0.851063829787234,
+     "n_faithfulness_scored": 47,
+     "proper_refusal_rate_unanswerable": 0.6363636363636364,
+     "pure_refusal_rate_answerable": 0.0,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 42,
+   "n_questions": 58
+  },
+  {
+   "id": 3,
+   "created_at": 1791870731.4430218,
+   "split": "dev",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 47,
+   "n_unanswerable": 11,
+   "recall_at_k": 0.7659574468085106,
+   "mrr": 0.5911347517730496,
+   "answer_correctness": 0.8085106382978723,
+   "faithfulness": 1.0,
+   "proper_refusal": 1.0,
+   "pure_refusal_answerable": 0.19148936170212766,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 6.37987449998036,
+   "p95_latency_s": 16.44407779991161,
+   "mean_prompt_tokens": 1042.8103448275863,
+   "retriever": "dense",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.425531914893617,
+     "3": 0.7021276595744681,
+     "4": 0.7659574468085106,
+     "5": 0.8297872340425532,
+     "10": 0.8936170212765957,
+     "20": 0.8936170212765957
+    },
+    "evidence_recall": {
+     "1": 0.44680851063829785,
+     "3": 0.723404255319149,
+     "4": 0.776595744680851,
+     "5": 0.8297872340425532,
+     "10": 0.9042553191489362,
+     "20": 0.925531914893617
+    },
+    "recall_by_type": {
+     "factual": 0.8928571428571429,
+     "multi_hop": 0.16666666666666666,
+     "paraphrase": 0.7692307692307693
+    },
+    "generation_summary": {
+     "n": 58,
+     "errors": 0,
+     "cache_hits": 5,
+     "over_context": 0,
+     "mean_latency_s": 5.988695386205078,
+     "p95_latency_s": 16.44407779991161,
+     "mean_prompt_tokens": 1042.8103448275863,
+     "refusal_rate_unanswerable": 1.0,
+     "false_refusal_rate_answerable": 0.19148936170212766
+    },
+    "judge_summary": {
+     "n": 58,
+     "errors": 0,
+     "answer_correctness": 0.8085106382978723,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 38,
+     "proper_refusal_rate_unanswerable": 1.0,
+     "pure_refusal_rate_answerable": 0.19148936170212766,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 49,
+   "n_questions": 58
+  },
+  {
+   "id": 5,
+   "created_at": 1792996651.3710945,
+   "split": "dev",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 6,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 47,
+   "n_unanswerable": 11,
+   "recall_at_k": 0.8723404255319149,
+   "mrr": 0.5911347517730496,
+   "answer_correctness": 0.8723404255319149,
+   "faithfulness": 1.0,
+   "proper_refusal": 0.9090909090909091,
+   "pure_refusal_answerable": 0.10638297872340426,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 5.745895600004587,
+   "p95_latency_s": 57.23404950002441,
+   "mean_prompt_tokens": 1523.1896551724137,
+   "retriever": "dense",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.425531914893617,
+     "3": 0.7021276595744681,
+     "4": 0.7659574468085106,
+     "5": 0.8297872340425532,
+     "10": 0.8936170212765957,
+     "20": 0.8936170212765957
+    },
+    "evidence_recall": {
+     "1": 0.44680851063829785,
+     "3": 0.723404255319149,
+     "4": 0.776595744680851,
+     "5": 0.8297872340425532,
+     "10": 0.9042553191489362,
+     "20": 0.925531914893617
+    },
+    "recall_by_type": {
+     "factual": 1.0,
+     "multi_hop": 0.3333333333333333,
+     "paraphrase": 0.8461538461538461
+    },
+    "generation_summary": {
+     "n": 58,
+     "errors": 0,
+     "cache_hits": 58,
+     "over_context": 0,
+     "mean_latency_s": 12.030191660345862,
+     "p95_latency_s": 57.23404950002441,
+     "mean_prompt_tokens": 1523.1896551724137,
+     "refusal_rate_unanswerable": 0.9090909090909091,
+     "false_refusal_rate_answerable": 0.10638297872340426
+    },
+    "judge_summary": {
+     "n": 58,
+     "errors": 0,
+     "answer_correctness": 0.8723404255319149,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 42,
+     "proper_refusal_rate_unanswerable": 0.9090909090909091,
+     "pure_refusal_rate_answerable": 0.10638297872340426,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 51,
+   "n_questions": 58
+  },
+  {
+   "id": 6,
+   "created_at": 1793254216.338962,
+   "split": "test",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 32,
+   "n_unanswerable": 8,
+   "recall_at_k": 0.84375,
+   "mrr": 0.6145833333333334,
+   "answer_correctness": 0.9375,
+   "faithfulness": 1.0,
+   "proper_refusal": 0.875,
+   "pure_refusal_answerable": 0.0625,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 4.144185049997759,
+   "p95_latency_s": 17.50132989999838,
+   "mean_prompt_tokens": 1027.775,
+   "retriever": "dense",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.40625,
+     "3": 0.8125,
+     "4": 0.84375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "evidence_recall": {
+     "1": 0.453125,
+     "3": 0.828125,
+     "4": 0.859375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "recall_by_type": {
+     "factual": 0.85,
+     "multi_hop": 0.75,
+     "paraphrase": 0.875
+    },
+    "generation_summary": {
+     "n": 40,
+     "errors": 0,
+     "cache_hits": 0,
+     "over_context": 0,
+     "mean_latency_s": 7.604757832497126,
+     "p95_latency_s": 17.50132989999838,
+     "mean_prompt_tokens": 1027.775,
+     "refusal_rate_unanswerable": 0.875,
+     "false_refusal_rate_answerable": 0.0625
+    },
+    "judge_summary": {
+     "n": 40,
+     "errors": 0,
+     "answer_correctness": 0.9375,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 30,
+     "proper_refusal_rate_unanswerable": 0.875,
+     "pure_refusal_rate_answerable": 0.0625,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 37,
+   "n_questions": 40
+  },
+  {
+   "id": 7,
+   "created_at": 1793858700.940509,
+   "split": "test",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 6,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 32,
+   "n_unanswerable": 8,
+   "recall_at_k": 0.90625,
+   "mrr": 0.6145833333333334,
+   "answer_correctness": 0.9375,
+   "faithfulness": 1.0,
+   "proper_refusal": 1.0,
+   "pure_refusal_answerable": 0.0625,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 3.067610149999382,
+   "p95_latency_s": 6.374345299998822,
+   "mean_prompt_tokens": 1514.675,
+   "retriever": "dense",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.40625,
+     "3": 0.8125,
+     "4": 0.84375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "evidence_recall": {
+     "1": 0.453125,
+     "3": 0.828125,
+     "4": 0.859375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "recall_by_type": {
+     "factual": 0.9,
+     "multi_hop": 1.0,
+     "paraphrase": 0.875
+    },
+    "generation_summary": {
+     "n": 40,
+     "errors": 0,
+     "cache_hits": 0,
+     "over_context": 0,
+     "mean_latency_s": 3.6974435374995664,
+     "p95_latency_s": 6.374345299998822,
+     "mean_prompt_tokens": 1514.675,
+     "refusal_rate_unanswerable": 1.0,
+     "false_refusal_rate_answerable": 0.0625
+    },
+    "judge_summary": {
+     "n": 40,
+     "errors": 0,
+     "answer_correctness": 0.9375,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 30,
+     "proper_refusal_rate_unanswerable": 1.0,
+     "pure_refusal_rate_answerable": 0.0625,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 38,
+   "n_questions": 40
+  },
+  {
+   "id": 8,
+   "created_at": 1794288141.4766784,
+   "split": "test",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 3,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 32,
+   "n_unanswerable": 8,
+   "recall_at_k": 0.875,
+   "mrr": 0.6416666666666667,
+   "answer_correctness": 0.9375,
+   "faithfulness": 1.0,
+   "proper_refusal": 1.0,
+   "pure_refusal_answerable": 0.0625,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 5.679780550002761,
+   "p95_latency_s": 15.980627499993716,
+   "mean_prompt_tokens": 814.4,
+   "retriever": "hybrid",
+   "replicate": 0,
+   "metrics": {
+    "recall": {
+     "1": 0.40625,
+     "3": 0.875,
+     "4": 0.9375,
+     "5": 0.96875,
+     "10": 0.96875,
+     "20": 0.96875
+    },
+    "evidence_recall": {
+     "1": 0.4375,
+     "3": 0.890625,
+     "4": 0.9375,
+     "5": 0.96875,
+     "10": 0.96875,
+     "20": 0.96875
+    },
+    "recall_by_type": {
+     "factual": 0.95,
+     "multi_hop": 0.75,
+     "paraphrase": 0.75
+    },
+    "generation_summary": {
+     "n": 40,
+     "errors": 0,
+     "cache_hits": 40,
+     "over_context": 0,
+     "mean_latency_s": 7.205621254999824,
+     "p95_latency_s": 15.980627499993716,
+     "mean_prompt_tokens": 814.4,
+     "refusal_rate_unanswerable": 1.0,
+     "false_refusal_rate_answerable": 0.0625
+    },
+    "judge_summary": {
+     "n": 40,
+     "errors": 0,
+     "answer_correctness": 0.9375,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 30,
+     "proper_refusal_rate_unanswerable": 1.0,
+     "pure_refusal_rate_answerable": 0.0625,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 38,
+   "n_questions": 40
+  },
+  {
+   "id": 9,
+   "created_at": 1794288589.8892286,
+   "split": "test",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 32,
+   "n_unanswerable": 8,
+   "recall_at_k": 0.84375,
+   "mrr": 0.6145833333333334,
+   "answer_correctness": 0.9375,
+   "faithfulness": 1.0,
+   "proper_refusal": 0.875,
+   "pure_refusal_answerable": 0.0625,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 2.342467550002766,
+   "p95_latency_s": 5.57499739999912,
+   "mean_prompt_tokens": 1027.775,
+   "retriever": "dense",
+   "replicate": 1,
+   "metrics": {
+    "recall": {
+     "1": 0.40625,
+     "3": 0.8125,
+     "4": 0.84375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "evidence_recall": {
+     "1": 0.453125,
+     "3": 0.828125,
+     "4": 0.859375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "recall_by_type": {
+     "factual": 0.85,
+     "multi_hop": 0.75,
+     "paraphrase": 0.875
+    },
+    "generation_summary": {
+     "n": 40,
+     "errors": 0,
+     "cache_hits": 0,
+     "over_context": 0,
+     "mean_latency_s": 2.9864041475002523,
+     "p95_latency_s": 5.57499739999912,
+     "mean_prompt_tokens": 1027.775,
+     "refusal_rate_unanswerable": 0.875,
+     "false_refusal_rate_answerable": 0.0625
+    },
+    "judge_summary": {
+     "n": 40,
+     "errors": 0,
+     "answer_correctness": 0.9375,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 30,
+     "proper_refusal_rate_unanswerable": 0.875,
+     "pure_refusal_rate_answerable": 0.0625,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 37,
+   "n_questions": 40
+  },
+  {
+   "id": 10,
+   "created_at": 1794289195.7090409,
+   "split": "test",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 6,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 32,
+   "n_unanswerable": 8,
+   "recall_at_k": 0.90625,
+   "mrr": 0.6145833333333334,
+   "answer_correctness": 0.9375,
+   "faithfulness": 1.0,
+   "proper_refusal": 1.0,
+   "pure_refusal_answerable": 0.0625,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 5.146034550001787,
+   "p95_latency_s": 22.762845999997808,
+   "mean_prompt_tokens": 1514.675,
+   "retriever": "dense",
+   "replicate": 1,
+   "metrics": {
+    "recall": {
+     "1": 0.40625,
+     "3": 0.8125,
+     "4": 0.84375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "evidence_recall": {
+     "1": 0.453125,
+     "3": 0.828125,
+     "4": 0.859375,
+     "5": 0.90625,
+     "10": 0.9375,
+     "20": 0.96875
+    },
+    "recall_by_type": {
+     "factual": 0.9,
+     "multi_hop": 1.0,
+     "paraphrase": 0.875
+    },
+    "generation_summary": {
+     "n": 40,
+     "errors": 0,
+     "cache_hits": 0,
+     "over_context": 0,
+     "mean_latency_s": 8.040431267499661,
+     "p95_latency_s": 22.762845999997808,
+     "mean_prompt_tokens": 1514.675,
+     "refusal_rate_unanswerable": 1.0,
+     "false_refusal_rate_answerable": 0.0625
+    },
+    "judge_summary": {
+     "n": 40,
+     "errors": 0,
+     "answer_correctness": 0.9375,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 30,
+     "proper_refusal_rate_unanswerable": 1.0,
+     "pure_refusal_rate_answerable": 0.0625,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 38,
+   "n_questions": 40
+  },
+  {
+   "id": 11,
+   "created_at": 1794372809.7542155,
+   "split": "test",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 3,
+   "prompt": "strict",
+   "temperature": 0.0,
+   "generator_model": "gemini-3.5-flash-lite",
+   "judge_model": "gemini-3.5-flash-lite",
+   "n_answerable": 32,
+   "n_unanswerable": 8,
+   "recall_at_k": 0.875,
+   "mrr": 0.6416666666666667,
+   "answer_correctness": 0.9375,
+   "faithfulness": 1.0,
+   "proper_refusal": 1.0,
+   "pure_refusal_answerable": 0.0625,
+   "mixed_refusal": 0.0,
+   "median_latency_s": 6.300959400000011,
+   "p95_latency_s": 23.48117450000001,
+   "mean_prompt_tokens": 814.4,
+   "retriever": "hybrid",
+   "replicate": 1,
+   "metrics": {
+    "recall": {
+     "1": 0.40625,
+     "3": 0.875,
+     "4": 0.9375,
+     "5": 0.96875,
+     "10": 0.96875,
+     "20": 0.96875
+    },
+    "evidence_recall": {
+     "1": 0.4375,
+     "3": 0.890625,
+     "4": 0.9375,
+     "5": 0.96875,
+     "10": 0.96875,
+     "20": 0.96875
+    },
+    "recall_by_type": {
+     "factual": 0.95,
+     "multi_hop": 0.75,
+     "paraphrase": 0.75
+    },
+    "generation_summary": {
+     "n": 40,
+     "errors": 0,
+     "cache_hits": 0,
+     "over_context": 0,
+     "mean_latency_s": 8.035649047499998,
+     "p95_latency_s": 23.48117450000001,
+     "mean_prompt_tokens": 814.4,
+     "refusal_rate_unanswerable": 1.0,
+     "false_refusal_rate_answerable": 0.0625
+    },
+    "judge_summary": {
+     "n": 40,
+     "errors": 0,
+     "answer_correctness": 0.9375,
+     "faithfulness": 1.0,
+     "n_faithfulness_scored": 30,
+     "proper_refusal_rate_unanswerable": 1.0,
+     "pure_refusal_rate_answerable": 0.0625,
+     "mixed_refusal_rate": 0.0
+    }
+   },
+   "passes": 38,
+   "n_questions": 40
+  }
+ ],
+ "dev_questions": [
+  {
+   "run_id": 1,
+   "question_id": "q001",
+   "type": "factual",
+   "question": "How do I declare a path parameter?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "You can declare a *path parameter* using one of the internal tools from Starlette, like this:\n\n```\n/files/{file_path:path}\n```\n\n[1]"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q002",
+   "type": "unanswerable",
+   "question": "What is the capital of France?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q003",
+   "type": "factual",
+   "question": "Why does FastAPI return an error for /items/foo when item_id is declared as an int path parameter?",
+   "category": "over_refusal",
+   "rank_needed": 1,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q004",
+   "type": "factual",
+   "question": "Why must the /users/me path be declared before /users/{user_id}?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Because *path operations* are evaluated in order [3]."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q005",
+   "type": "factual",
+   "question": "How can I limit a path parameter to a fixed set of valid values?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "You can use an `Enum` class, inheriting from `str`, to create a predefined set of valid values for a path operation. [1] [3]\n\nExample:\n```python\nfrom enum import Enum\nfrom typing import str\n\nclass UserStatus(str, Enum):\n    active = \"active\"\n    inactive = \"inactive\"\n\n@app.get(\"/users/{user_status}\")\nasync def read_users(user_status: UserStatus):\n    # ...\n```\nIn this example, the `UserStatus` enum defines a set of valid values for the `user_status` path parameter."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q006",
+   "type": "factual",
+   "question": "How can a path parameter contain a full file path such as home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can use one of the internal tools from Starlette to declare a *path parameter* containing a *path* using a URL like:\n\n```\n/files/{file_path:path}\n```\n\nIn this case, the name of the parameter is `file_path`, and the last part, `:path`, tells it that the parameter should match any *path*. [1]\n\nSo, you can use it with a full file path such as `/files/home/johndoe/myfile.txt`."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q007",
+   "type": "factual",
+   "question": "What URL do I use if a path parameter must contain a leading slash, like /home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You might need the parameter to contain `/home/johndoe/myfile.txt`, with a leading slash (`/`). In that case, the URL would be: `/files//home/johndoe/myfile.txt`, with a double slash (`//`) between `files` and `home`. [1]"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q008",
+   "type": "factual",
+   "question": "Besides Swagger UI, which alternative API documentation does FastAPI provide?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Based on the provided documents, besides Swagger UI, FastAPI provides ReDoc as an alternative API documentation. [1] [2]\n\nPassage: And because the generated schema is from the OpenAPI standard, there are many compatible tools. Because of this, **FastAPI** itself provides an alternative API documentation (using ReDoc), which you can access at [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc):"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q009",
+   "type": "paraphrase",
+   "question": "I typed a decimal like 4.2 into the URL for a route that expects a whole number. Will it be accepted?",
+   "category": "over_refusal",
+   "rank_needed": 2,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q010",
+   "type": "paraphrase",
+   "question": "I defined my route's allowed choices as a fixed list. Inside the function, how do I read the plain text of the option the caller picked?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q012",
+   "type": "multi_hop",
+   "question": "For a route with an int path parameter, what does my function receive for /items/3, and what does the client get back for /items/foo?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "Based on the provided documents, I can answer your question.\n\nFor a route with an `int` path parameter, if you run this example and go to `/items/3`, your function will receive `item_id=3`. The client will get back:\n\n```JSON\n{\"item_id\": 3}\n```\n\n[1] explains that the value of the path parameter `item_id` will be passed to your function as the argument `item_id`.\n\nFor a route with an `int` path parameter, if you run this example and go to `/items/foo`, your function will receive `item_id=None`. The client will get back:\n\n```JSON\n{\"item_id\": null}\n```\n\nThis is because `foo` is not an integer, so "
+  },
+  {
+   "run_id": 1,
+   "question_id": "q013",
+   "type": "unanswerable",
+   "question": "How do I set a rate limit on a FastAPI endpoint?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q014",
+   "type": "unanswerable",
+   "question": "How do I add Redis caching to my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q016",
+   "type": "factual",
+   "question": "What is the query string in a URL, and how are its pairs separated?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], the query string in a URL is the set of key-value pairs that go after the `?` character, separated by `&` characters."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q018",
+   "type": "paraphrase",
+   "question": "If a caller leaves a value out of the URL, can my function still get a fallback value?",
+   "category": "over_refusal",
+   "rank_needed": 3,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q021",
+   "type": "paraphrase",
+   "question": "Which spellings in the URL make a boolean query parameter come out as True?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "According to [3], the following spellings in the URL make a boolean query parameter come out as True:\n\n* `short=1`\n* `short=True`\n* `short=true`\n* `short=on`\n* `short=yes`\n\nThese are all valid ways to specify a boolean value of True for the `short` query parameter."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q024",
+   "type": "paraphrase",
+   "question": "When a function has several arguments, how does FastAPI tell which ones come from the URL path and which from the query string?",
+   "category": "over_refusal",
+   "rank_needed": 2,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q025",
+   "type": "multi_hop",
+   "question": "Can I restrict a query parameter to a fixed set of values, and how do I define that set?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q027",
+   "type": "unanswerable",
+   "question": "How do I deploy my FastAPI app to AWS Lambda?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q028",
+   "type": "unanswerable",
+   "question": "How do I define a gRPC service in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q029",
+   "type": "factual",
+   "question": "Which HTTP methods should I use when I need to send data in a request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], you should use one of the following HTTP methods to send data in a request body: `POST`, `PUT`, `DELETE`, or `PATCH`. Sending a body with a `GET` request has an undefined behavior in the specifications, but it is supported by FastAPI for very complex/extreme use cases."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q030",
+   "type": "paraphrase",
+   "question": "My GET endpoint accepts a body, but the interactive docs don't display it. Why?",
+   "category": "over_refusal",
+   "rank_needed": 1,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q032",
+   "type": "factual",
+   "question": "When a function takes a path parameter, a Pydantic model and a plain int, how does FastAPI decide where each value comes from?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], if the parameter is declared in the **path**, it will be used as a path parameter. If the parameter is of a **singular type** (like `int`, `float`, `str`, `bool`, etc) it will be interpreted as a **query** parameter. If the parameter is declared to be of the type of a **Pydantic model**, it will be interpreted as a request **body**.\n\nSo, in this case, FastAPI would recognize the path parameter first, then the Pydantic model, and finally the plain int as a query parameter."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q034",
+   "type": "paraphrase",
+   "question": "What can I do if I would rather not define a Pydantic model for my request data?",
+   "category": "ranking_failure",
+   "rank_needed": 10,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q035",
+   "type": "factual",
+   "question": "What are background tasks used for?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Based on the provided documents, background tasks are used for operations that need to happen after a request, but that the client doesn't really have to be waiting for the operation to complete before receiving the response. This includes, for example:\n\n* Email notifications sent after performing an action [2]\n* Processing data [2]\n\n[1], [2]"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q036",
+   "type": "paraphrase",
+   "question": "My endpoint sends an email that takes several seconds. How can I stop the caller from waiting for it?",
+   "category": "mixed_refusal",
+   "rank_needed": 2,
+   "answer": "You can define background tasks to be run after returning a response [2]. This is useful for operations that need to happen after a request, but that the client doesn't really have to be waiting for the operation to complete before receiving the response. In your case, you can return the response right away and send the email notification in the background.\n\nI don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q037",
+   "type": "factual",
+   "question": "Which method schedules a function on the background tasks object?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "[1] The method that schedules a function on the background tasks object is `.add_task()`."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q038",
+   "type": "factual",
+   "question": "Does a background task function have to be async, or can it be a normal function?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], a background task function does not have to be async. It can be an `async def` or normal `def` function, and **FastAPI** will know how to handle it correctly.\n\n[1] (source: tutorial/background-tasks.md)\nCreate a function to be run as the background task.\n\nIt is just a standard function that can receive parameters.\n\nIt can be an `async def` or normal `def` function, **FastAPI** will know how to handle it correctly."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q042",
+   "type": "paraphrase",
+   "question": "My frontend runs on localhost port 8080 and my backend on plain localhost. Why does the browser treat them as separate sites?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], an origin is the combination of protocol (`http`, `https`), domain (`myapp.com`, `localhost`, `localhost.tiangolo.com`), and port (`80`, `443`, `8080`). Since your frontend runs on `http://localhost:8080` and your backend on `http://localhost`, they are considered different \"origins\" because they use different ports."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q043",
+   "type": "factual",
+   "question": "What request does the browser send first to check whether a cross-origin call is allowed?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "The browser sends an HTTP OPTIONS request [4]."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q045",
+   "type": "paraphrase",
+   "question": "I want cookies to work for cross-origin requests. Can I still use wildcards for origins, methods and headers?",
+   "category": "ranking_failure",
+   "rank_needed": 6,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q047",
+   "type": "multi_hop",
+   "question": "If my function takes a Pydantic model plus an int parameter that has no default, where does the int come from, and is it required?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q048",
+   "type": "unanswerable",
+   "question": "How can I report the progress of a background task back to the client?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q051",
+   "type": "unanswerable",
+   "question": "How do I handle WebSocket connections in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q055",
+   "type": "factual",
+   "question": "Can the detail of an HTTPException be something other than a string?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Yes, according to [2], when raising an `HTTPException`, you can pass any value that can be converted to JSON as the parameter `detail`, not only `str`. You could pass a `dict`, a `list`, etc. They are handled automatically by **FastAPI** and converted to JSON."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q058",
+   "type": "factual",
+   "question": "Why shouldn't I just convert a RequestValidationError to a string and return it?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You should not just convert a `RequestValidationError` to a string and return it because it could be leaking information about your system. The `RequestValidationError` contains the file name and line where the validation error happens, so converting it to a string and returning that information directly could reveal this information. Instead, you can extract and show each error independently. [1]"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q061",
+   "type": "factual",
+   "question": "Is status_code a parameter of my route function or of the decorator?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], \"Notice that `status_code` is a parameter of the \"decorator\" method (`get`, `post`, etc). Not of your *path operation function*, like all the parameters and body.\" Therefore, status_code is a parameter of the decorator."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q064",
+   "type": "factual",
+   "question": "Which status code is commonly returned after creating a new database record?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "According to [2], `201` is the status code for \"Created\", which is commonly used after creating a new record in the database."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q065",
+   "type": "paraphrase",
+   "question": "How can I avoid memorizing numeric status codes and still get editor autocomplete?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can use the convenience variables from `fastapi.status`. [1]\n\nThey are just a convenience, they hold the same number, but that way you can use the editor's autocomplete to find them."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q066",
+   "type": "factual",
+   "question": "How do I create a middleware in FastAPI?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To create a middleware in FastAPI, you use the decorator `@app.middleware(\"http\")` on top of a function. [1]\n\nPassage: #create-a-middleware"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q067",
+   "type": "factual",
+   "question": "What does call_next do inside a middleware function?",
+   "category": "ranking_failure",
+   "rank_needed": 5,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q068",
+   "type": "multi_hop",
+   "question": "If I add MiddlewareA first and then MiddlewareB, which one handles an incoming request first?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "According to [1], the outermost middleware runs first on the request path. Therefore, in your case, MiddlewareB would handle the incoming request first.\n\nAnswer: MiddlewareB"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q070",
+   "type": "multi_hop",
+   "question": "What do I raise to send a 404 for a missing item, and which status code should I use for a generic client error?",
+   "category": "over_refusal",
+   "rank_needed": 4,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q071",
+   "type": "unanswerable",
+   "question": "How do I send FastAPI errors to Sentry?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q073",
+   "type": "unanswerable",
+   "question": "How do I return errors in the RFC 7807 problem details format?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q074",
+   "type": "unanswerable",
+   "question": "Which status code should I return when a client sends too many requests?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q076",
+   "type": "factual",
+   "question": "What naming convention must my test functions follow so pytest finds them?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "According to [2] (source: tutorial/testing.md), your test functions must have a name that starts with `test_` (this is a standard `pytest` convention)."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q077",
+   "type": "factual",
+   "question": "Do my test functions need to be async, and do client calls need await?",
+   "category": "over_refusal",
+   "rank_needed": 1,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q078",
+   "type": "paraphrase",
+   "question": "In a test, how do I send a Python dictionary to the app as a JSON request body?",
+   "category": "over_refusal",
+   "rank_needed": 1,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q080",
+   "type": "factual",
+   "question": "Can I pass a Pydantic model object directly to the TestClient?",
+   "category": "ranking_failure",
+   "rank_needed": 6,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q081",
+   "type": "paraphrase",
+   "question": "I don't know how to make the test client send some piece of data. Where should I look?",
+   "category": "over_refusal",
+   "rank_needed": 3,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q083",
+   "type": "factual",
+   "question": "When do I use Form instead of a JSON body?",
+   "category": "mixed_refusal",
+   "rank_needed": 4,
+   "answer": "You should use `Form` when you need to receive form fields instead of JSON, which is the case when the data is encoded using \"special\" encoding for that data, such as `application/x-www-form-urlencoded` or `multipart/form-data`. [1]\n\nI don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q086",
+   "type": "factual",
+   "question": "How is the Form class related to Body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to [1], `Form` is a class that inherits directly from `Body`."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q088",
+   "type": "factual",
+   "question": "Can one route take both Form fields and fields that arrive as a JSON body, and is that a FastAPI restriction?",
+   "category": "over_refusal",
+   "rank_needed": 1,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q091",
+   "type": "factual",
+   "question": "How can I use a Python variable named user_agent to read the User-Agent header?",
+   "category": "over_refusal",
+   "rank_needed": 1,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q093",
+   "type": "factual",
+   "question": "What do I receive when the same header is sent twice with different values?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You will receive all the values from the duplicate header as a Python `list`. [1]"
+  },
+  {
+   "run_id": 1,
+   "question_id": "q095",
+   "type": "multi_hop",
+   "question": "Why can't a route that takes a Pydantic model body also accept form fields?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 1,
+   "question_id": "q100",
+   "type": "unanswerable",
+   "question": "How do I run load tests against my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q001",
+   "type": "factual",
+   "question": "How do I declare a path parameter?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "You can declare a path parameter using one of the internal tools from Starlette in FastAPI, like this:\n\n```\n/files/{file_path:path}\n```\n\nIn this case, the name of the parameter is `file_path`, and the last part, `:path`, tells it that the parameter should match any path."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q002",
+   "type": "unanswerable",
+   "question": "What is the capital of France?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "This question doesn't seem to be related to the context provided. The context appears to be about CORS (Cross-Origin Resource Sharing) and FastAPI, a Python web framework. There is no mention of France or its capital in the text. If you meant to ask a different question, please feel free to rephrase it!"
+  },
+  {
+   "run_id": 2,
+   "question_id": "q003",
+   "type": "factual",
+   "question": "Why does FastAPI return an error for /items/foo when item_id is declared as an int path parameter?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "Because the path parameter `item_id` had a value of `\"foo\"`, which is not an `int`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q004",
+   "type": "factual",
+   "question": "Why must the /users/me path be declared before /users/{user_id}?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Because path operations are evaluated in order, you need to make sure that the path for `/users/me` is declared before the one for `/users/{user_id}`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q005",
+   "type": "factual",
+   "question": "How can I limit a path parameter to a fixed set of valid values?",
+   "category": "incorrect_answer",
+   "rank_needed": 2,
+   "answer": "You can use an `Enum` class to create a predefined set of valid values for a path parameter."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q006",
+   "type": "factual",
+   "question": "How can a path parameter contain a full file path such as home/johndoe/myfile.txt?",
+   "category": "incorrect_answer",
+   "rank_needed": 1,
+   "answer": "You can declare a path parameter containing a path using one of the internal tools from Starlette in FastAPI. The URL would look like `/files//home/johndoe/myfile.txt`, with a double slash (`//`) between `files` and `home`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q007",
+   "type": "factual",
+   "question": "What URL do I use if a path parameter must contain a leading slash, like /home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You would use the URL `/files//home/johndoe/myfile.txt`, with a double slash (`//`) between `files` and `home`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q008",
+   "type": "factual",
+   "question": "Besides Swagger UI, which alternative API documentation does FastAPI provide?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Besides Swagger UI, FastAPI provides ReDoc as an alternative API documentation."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q009",
+   "type": "paraphrase",
+   "question": "I typed a decimal like 4.2 into the URL for a route that expects a whole number. Will it be accepted?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "No, it will not be accepted. The error message would state \"Input should be a valid integer, unable to parse string as an integer\", indicating that the value provided is not a valid integer."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q010",
+   "type": "paraphrase",
+   "question": "I defined my route's allowed choices as a fixed list. Inside the function, how do I read the plain text of the option the caller picked?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "You can access the plain text of the option the caller picked by using the `item_id` parameter in your path operation function. Since you've defined it as a string, you can simply use it like any other variable:\n\n```\n@router.get(\"/{item_id}\")\nasync def read_item(item_id: str):\n    # item_id is the plain text of the option the caller picked\n    ...\n```"
+  },
+  {
+   "run_id": 2,
+   "question_id": "q012",
+   "type": "multi_hop",
+   "question": "For a route with an int path parameter, what does my function receive for /items/3, and what does the client get back for /items/foo?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "For a route with an int path parameter, if you run `/items/3`, your function will receive `item_id=3` as an argument. The client will get back a JSON response of `{\"item_id\": \"3\"}`.\n\nHowever, if you run `/items/foo`, your function will receive `item_id=\"foo\"` as an argument, and the client will get back a JSON response of `{\"item_id\": \"foo\"}`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q013",
+   "type": "unanswerable",
+   "question": "How do I set a rate limit on a FastAPI endpoint?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "This question is not answered in the provided context. The context appears to be about query parameters, validation, and middleware in FastAPI, but it does not mention setting a rate limit on an endpoint. To answer this question, you would need to look elsewhere, such as the official FastAPI documentation or other online resources."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q014",
+   "type": "unanswerable",
+   "question": "How do I add Redis caching to my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "Unfortunately, this context does not mention Redis caching. It appears to be a tutorial on getting started with FastAPI, covering topics such as creating an instance of FastAPI, path operations, middleware, and more. There is no specific section or mention of adding Redis caching to your FastAPI app."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q016",
+   "type": "factual",
+   "question": "What is the query string in a URL, and how are its pairs separated?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to the context, the query string in a URL is the set of key-value pairs that go after the `?` character, separated by `&` characters."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q018",
+   "type": "paraphrase",
+   "question": "If a caller leaves a value out of the URL, can my function still get a fallback value?",
+   "category": "incorrect_answer",
+   "rank_needed": 3,
+   "answer": "Yes, your function can still get a fallback value if a caller leaves a value out of the URL. By default, `app.frontend()` uses `fallback=\"auto\"`, which means that if there is a `404.html` file in the frontend directory, missing frontend paths will serve that file with status code 404."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q021",
+   "type": "paraphrase",
+   "question": "Which spellings in the URL make a boolean query parameter come out as True?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "According to the context, the following spellings in the URL make a boolean query parameter come out as True:\n\n* `short=1`\n* `short=True`\n* `short=true`\n* `short=on`\n* `short=yes`\n\nThese different spellings will all be converted to a `bool` value of `True`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q024",
+   "type": "paraphrase",
+   "question": "When a function has several arguments, how does FastAPI tell which ones come from the URL path and which from the query string?",
+   "category": "incorrect_answer",
+   "rank_needed": 2,
+   "answer": "According to the context, if a parameter is declared in both the **path** and the function parameters, it will be used as a path parameter. If the parameter is of a singular type (like `int`, `float`, `str`, `bool`, etc) it will be interpreted as a query parameter."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q025",
+   "type": "multi_hop",
+   "question": "Can I restrict a query parameter to a fixed set of values, and how do I define that set?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "No, you cannot directly restrict a query parameter to a fixed set of values using Pydantic models in FastAPI. However, you can achieve this by using the `Enum` type from Pydantic.\n\nFor example, if you want to restrict the value of the `tool` query parameter to only allow specific tools like \"plumbus\", \"hammer\", or \"screwdriver\", you can define an enum like this:\n\n```\nfrom pydantic import BaseModel\nfrom enum import Enum\n\nclass Tool(Enum):\n    PLUMBUS = \"plumbus\"\n    HAMMER = \"hammer\"\n    SCREWDRIVER = \"screwdriver\"\n\nclass Item(BaseModel):\n    tool: Tool\n```\n\nIn this example, the `tool` query pa"
+  },
+  {
+   "run_id": 2,
+   "question_id": "q027",
+   "type": "unanswerable",
+   "question": "How do I deploy my FastAPI app to AWS Lambda?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "The answer is not provided in the given context, as it only discusses deploying your FastAPI app to [FastAPI Cloud](https://fastapicloud.com) and other cloud providers. To deploy your FastAPI app to AWS Lambda, you would need to follow the guides for deploying FastAPI apps to AWS Lambda, which are not included in this context."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q028",
+   "type": "unanswerable",
+   "question": "How do I define a gRPC service in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "You don't need to define a gRPC service in FastAPI. The tutorial only covers the basic steps of creating a FastAPI app, deploying it, and accessing it. It does not mention gRPC services specifically."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q029",
+   "type": "factual",
+   "question": "Which HTTP methods should I use when I need to send data in a request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to the context, you should use one of the following HTTP methods to send data in a request body:\n\n* `POST`\n* `PUT`\n* `DELETE`\n* `PATCH`\n\nNote that sending a body with a `GET` request has an undefined behavior and is not recommended."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q030",
+   "type": "paraphrase",
+   "question": "My GET endpoint accepts a body, but the interactive docs don't display it. Why?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to the context, sending a body with a `GET` request has an undefined behavior in the specifications, and FastAPI supports it only for very complex or extreme use cases. As a result, the interactive docs with Swagger UI won't show the documentation for the body when using `GET`, and proxies in the middle might not support it."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q032",
+   "type": "factual",
+   "question": "When a function takes a path parameter, a Pydantic model and a plain int, how does FastAPI decide where each value comes from?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to the context, if the parameter is also declared in the **path**, it will be used as a path parameter. If the parameter is of a **singular type** (like `int`, `float`, `str`, `bool`, etc) it will be interpreted as a **query** parameter. If the parameter is declared to be of the type of a **Pydantic model**, it will be interpreted as a request **body**."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q034",
+   "type": "paraphrase",
+   "question": "What can I do if I would rather not define a Pydantic model for my request data?",
+   "category": "ranking_failure",
+   "rank_needed": 10,
+   "answer": "You can declare examples of the data your app can receive using the `examples` attribute in the JSON Schema. This is useful when you want to provide example data for API documentation or testing purposes."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q035",
+   "type": "factual",
+   "question": "What are background tasks used for?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "According to the context, background tasks are used for operations that need to happen after a request, but that the client doesn't really have to be waiting for the operation to complete before receiving the response. This includes sending email notifications, processing data, and other similar tasks that can be run in the background while returning a response to the client."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q036",
+   "type": "paraphrase",
+   "question": "My endpoint sends an email that takes several seconds. How can I stop the caller from waiting for it?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "You can return the response right away and send the email notification in the background using `BackgroundTasks`. This way, the client doesn't have to wait for the email to be sent before receiving the response. You can define a background task to run after returning the response, which will handle sending the email."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q037",
+   "type": "factual",
+   "question": "Which method schedules a function on the background tasks object?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The answer is `.add_task()`. This method receives as arguments:\n\n1. A task function to be run in the background (`write_notification`).\n2. Any sequence of arguments that should be passed to the task function (`email`).\n3. Any keyword arguments that should be passed to the task function (`message=\"some notification\"`)."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q038",
+   "type": "factual",
+   "question": "Does a background task function have to be async, or can it be a normal function?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to the context, a background task function does not have to be async. In this case, the example uses a normal `def` function (`write_notification`) as the background task, and FastAPI will know how to handle it correctly."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q042",
+   "type": "paraphrase",
+   "question": "My frontend runs on localhost port 8080 and my backend on plain localhost. Why does the browser treat them as separate sites?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The browser treats your frontend (localhost:8080) and backend (localhost) as separate sites because they have different origins. An origin is defined by a combination of protocol, domain, and port. In this case:\n\n* Your frontend runs on `http://localhost:8080`, which has a different port than the default port 80 used by your backend.\n* Your backend runs on `http://localhost` (assuming no port specified), which has a different origin from your frontend.\n\nThis is why the browser sends an HTTP OPTIONS request to the backend, and the backend needs to specify allowed origins in its CORS configurati"
+  },
+  {
+   "run_id": 2,
+   "question_id": "q043",
+   "type": "factual",
+   "question": "What request does the browser send first to check whether a cross-origin call is allowed?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "According to the context, the browser sends an HTTP OPTIONS request to the backend to check whether a cross-origin call is allowed. This is referred to as a \"CORS preflight request\"."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q045",
+   "type": "paraphrase",
+   "question": "I want cookies to work for cross-origin requests. Can I still use wildcards for origins, methods and headers?",
+   "category": "pass",
+   "rank_needed": 6,
+   "answer": "No, you cannot use wildcards for origins if you want cookies to work for cross-origin requests. According to the documentation, using a wildcard (`\"*\"`) will only allow certain types of communication, excluding everything that involves credentials (such as Cookies). To achieve this, you need to specify explicitly the allowed origins."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q047",
+   "type": "multi_hop",
+   "question": "If my function takes a Pydantic model plus an int parameter that has no default, where does the int come from, and is it required?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "According to the context, if your function takes a Pydantic model plus an `int` parameter that has no default, the `int` comes from the natural data type of the parameter inside the function. Since there is no default value specified for the `int` parameter, it is required.\n\nIn other words, the `int` parameter will be included in the JSON response and its absence would result in an error."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q048",
+   "type": "unanswerable",
+   "question": "How can I report the progress of a background task back to the client?",
+   "category": "failed_to_decline",
+   "rank_needed": null,
+   "answer": "You cannot report the progress of a background task back to the client. Once you've returned a response to the client, no further responses can be sent. The background tasks will run in parallel with the main request-response cycle and do not have direct access to the client."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q051",
+   "type": "unanswerable",
+   "question": "How do I handle WebSocket connections in FastAPI?",
+   "category": "failed_to_decline",
+   "rank_needed": null,
+   "answer": "FastAPI does not have built-in support for WebSockets. It only supports Server-Sent Events (SSE) and Stream JSON Lines, as described in the provided context. If you need to handle WebSocket connections, you may want to consider using a third-party library or framework that provides this functionality."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q055",
+   "type": "factual",
+   "question": "Can the detail of an HTTPException be something other than a string?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Yes, according to the context, when raising an `HTTPException`, you can pass any value that can be converted to JSON as the parameter `detail`, not only `str`. You could pass a `dict`, a `list`, etc. They are handled automatically by **FastAPI** and converted to JSON."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q058",
+   "type": "factual",
+   "question": "Why shouldn't I just convert a RequestValidationError to a string and return it?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You should not just convert a `RequestValidationError` to a string and return it because that could leak information about your system. The `RequestValidationError` contains the file name and line where the validation error happens, which you can use to show relevant information in your logs if needed."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q061",
+   "type": "factual",
+   "question": "Is status_code a parameter of my route function or of the decorator?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "status_code is a parameter of the \"decorator\" method (`get`, `post`, etc), not of your path operation function."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q064",
+   "type": "factual",
+   "question": "Which status code is commonly returned after creating a new database record?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "According to the context, `201` is the status code for \"Created\", which is commonly used after creating a new record in the database."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q065",
+   "type": "paraphrase",
+   "question": "How can I avoid memorizing numeric status codes and still get editor autocomplete?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can use the convenience variables from `fastapi.status`. They are just a convenience, they hold the same number, but that way you can use the editor's autocomplete to find them."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q066",
+   "type": "factual",
+   "question": "How do I create a middleware in FastAPI?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To create a middleware in FastAPI, you use the decorator `@app.middleware(\"http\")` on top of a function. The middleware function receives each request and response, allowing you to perform operations before or after they are processed by the application."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q067",
+   "type": "factual",
+   "question": "What does call_next do inside a middleware function?",
+   "category": "ranking_failure",
+   "rank_needed": 5,
+   "answer": "According to the context, `call_next` is not explicitly mentioned as a part of the middleware function. However, it can be inferred from the description of how middlewares work that `call_next` is likely used to pass the request or response to the next middleware in the stack.\n\nIn other words, when a middleware function is executed, it can choose to call `call_next` to allow the request or response to continue being processed by the next middleware in the stack. This allows middlewares to selectively modify or skip processing of requests and responses as needed."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q068",
+   "type": "multi_hop",
+   "question": "If I add MiddlewareA first and then MiddlewareB, which one handles an incoming request first?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "According to the context, if you add MiddlewareA first and then MiddlewareB, MiddlewareB will handle an incoming request first. This is because the outermost middleware runs first on the request path.\n\nSo, in this case:\n\n* **Request**: MiddlewareB \u2192 MiddlewareA \u2192 route"
+  },
+  {
+   "run_id": 2,
+   "question_id": "q070",
+   "type": "multi_hop",
+   "question": "What do I raise to send a 404 for a missing item, and which status code should I use for a generic client error?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "To send a 404 for a missing item, you would raise an `HTTPException`. For a generic client error, you can use the status code `400`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q071",
+   "type": "unanswerable",
+   "question": "How do I send FastAPI errors to Sentry?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "You don't have a question about sending FastAPI errors to Sentry in the provided context. The text only discusses various aspects of FastAPI, such as handling errors, server-sent events, and request forms. There is no mention of Sentry or error reporting."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q073",
+   "type": "unanswerable",
+   "question": "How do I return errors in the RFC 7807 problem details format?",
+   "category": "failed_to_decline",
+   "rank_needed": null,
+   "answer": "You can use the `HTTPException` class from FastAPI to return HTTP responses with errors to the client. Specifically, you can create an instance of `HTTPException` and pass it a dictionary that conforms to the RFC 7807 problem details format.\n\nHere's an example:\n```python\nfrom fastapi import HTTPException\n\nproblem = {\n    \"type\": \"https://example.com/errors/invalid-input\",\n    \"title\": \"Invalid input\",\n    \"detail\": \"The provided data is invalid.\",\n    \"status\": 400,\n}\n\nraise HTTPException(status_code=400, detail=problem)\n```\nThis will return an HTTP response with a status code of 400 and the p"
+  },
+  {
+   "run_id": 2,
+   "question_id": "q074",
+   "type": "unanswerable",
+   "question": "Which status code should I return when a client sends too many requests?",
+   "category": "failed_to_decline",
+   "rank_needed": null,
+   "answer": "According to the context, you would use `429` as the HTTP status code. This is because `400 - 499` are for \"Client error\" responses, and `429` specifically means \"Too Many Requests\"."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q076",
+   "type": "factual",
+   "question": "What naming convention must my test functions follow so pytest finds them?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "According to the context, your test functions must have a name that starts with `test_` (this is a standard `pytest` convention)."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q077",
+   "type": "factual",
+   "question": "Do my test functions need to be async, and do client calls need await?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "No, your test functions do not need to be `async`, and client calls do not need to use `await`. This is because the testing functions are normal `def` functions, and the calls to the client are also normal calls, not using `await`. This allows you to use `pytest` directly without complications."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q078",
+   "type": "paraphrase",
+   "question": "In a test, how do I send a Python dictionary to the app as a JSON request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can pass a Python object (e.g., a `dict`) to the parameter `json`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q080",
+   "type": "factual",
+   "question": "Can I pass a Pydantic model object directly to the TestClient?",
+   "category": "ranking_failure",
+   "rank_needed": 6,
+   "answer": "No, you cannot pass a Pydantic model object directly to the TestClient. The TestClient expects a dictionary, not a Pydantic model object. You would need to use the `.model_dump()` method of the Pydantic model to convert it to a dictionary before passing it to the TestClient."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q081",
+   "type": "paraphrase",
+   "question": "I don't know how to make the test client send some piece of data. Where should I look?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "You can search (Google) how to do it in `httpx`, or even how to do it with `requests`, as HTTPX's design is based on Requests' design. Then you just do the same in your tests."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q083",
+   "type": "factual",
+   "question": "When do I use Form instead of a JSON body?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "You would use `Form` instead of a JSON body when you need to receive form fields instead of JSON data. This is typically the case when sending data from an HTML form, as described in the context. The key difference is that form data is encoded using the \"media type\" `application/x-www-form-urlencoded`, whereas JSON data is encoded using `application/json`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q086",
+   "type": "factual",
+   "question": "How is the Form class related to Body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "According to the context, `Form` is a class that inherits directly from `Body`. This means that `Form` is a subclass of `Body`, and it's used to declare form bodies."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q088",
+   "type": "factual",
+   "question": "Can one route take both Form fields and fields that arrive as a JSON body, and is that a FastAPI restriction?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "No, it's not a FastAPI restriction. According to the context, you can declare multiple `Form` parameters in a *path operation*, but you can't also declare `Body` fields that you expect to receive as JSON, as the request will have the body encoded using `application/x-www-form-urlencoded` instead of `application/json`. This is not a limitation of FastAPI, it's part of the HTTP protocol."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q091",
+   "type": "factual",
+   "question": "How can I use a Python variable named user_agent to read the User-Agent header?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can use it as you normally would in Python code, without needing to capitalize the first letters. The `Header` class will automatically convert the underscore (`_`) to hyphen (`-`) to extract and document the headers."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q093",
+   "type": "factual",
+   "question": "What do I receive when the same header is sent twice with different values?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You will receive all the values from the duplicate header as a Python `list`."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q095",
+   "type": "multi_hop",
+   "question": "Why can't a route that takes a Pydantic model body also accept form fields?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "A route that takes a Pydantic model body cannot also accept form fields because it is not supported by FastAPI. The documentation states that sending a body with a `GET` request has an undefined behavior in the specifications, and it is only supported by FastAPI for very complex or extreme use cases."
+  },
+  {
+   "run_id": 2,
+   "question_id": "q100",
+   "type": "unanswerable",
+   "question": "How do I run load tests against my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "The answer is not explicitly provided in the given context. The context only discusses testing and provides examples of how to write tests for a FastAPI application, but it does not mention load testing specifically. Load testing typically involves using tools like Apache JMeter or Gatling to simulate a large number of requests to your application and measure its performance under heavy load."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q001",
+   "type": "factual",
+   "question": "How do I declare a path parameter?",
+   "category": "ranking_failure",
+   "rank_needed": 5,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q002",
+   "type": "unanswerable",
+   "question": "What is the capital of France?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q003",
+   "type": "factual",
+   "question": "Why does FastAPI return an error for /items/foo when item_id is declared as an int path parameter?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "FastAPI returns an error because the path parameter `item_id` had a value of `\"foo\"`, which is not a valid `int` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q004",
+   "type": "factual",
+   "question": "Why must the /users/me path be declared before /users/{user_id}?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Because path operations are evaluated in order, ensuring that the path for `/users/me` matches first instead of being incorrectly matched by `/users/{user_id}` [1, 2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q005",
+   "type": "factual",
+   "question": "How can I limit a path parameter to a fixed set of valid values?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "To limit a path parameter to a fixed set of valid values, you can use a standard Python `Enum` by importing `Enum` and creating a sub-class that inherits from `str` and from `Enum` [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q006",
+   "type": "factual",
+   "question": "How can a path parameter contain a full file path such as home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can declare a path parameter containing a path by using an option directly from Starlette with the syntax `/files/{file_path:path}`, where the `:path` part tells it to match any path [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q007",
+   "type": "factual",
+   "question": "What URL do I use if a path parameter must contain a leading slash, like /home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To include a leading slash (e.g., `/home/johndoe/myfile.txt`), you use a double slash (`//`) between `files` and `home`, resulting in the URL: `/files//home/johndoe/myfile.txt` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q008",
+   "type": "factual",
+   "question": "Besides Swagger UI, which alternative API documentation does FastAPI provide?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Besides Swagger UI, FastAPI provides an alternative API documentation using ReDoc [1, 2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q009",
+   "type": "paraphrase",
+   "question": "I typed a decimal like 4.2 into the URL for a route that expects a whole number. Will it be accepted?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "No, it will not be accepted because the path parameter expects an `int` (a valid integer), and providing a `float` like `4.2` will result in a validation error [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q010",
+   "type": "paraphrase",
+   "question": "I defined my route's allowed choices as a fixed list. Inside the function, how do I read the plain text of the option the caller picked?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q012",
+   "type": "multi_hop",
+   "question": "For a route with an int path parameter, what does my function receive for /items/3, and what does the client get back for /items/foo?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q013",
+   "type": "unanswerable",
+   "question": "How do I set a rate limit on a FastAPI endpoint?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q014",
+   "type": "unanswerable",
+   "question": "How do I add Redis caching to my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q016",
+   "type": "factual",
+   "question": "What is the query string in a URL, and how are its pairs separated?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The query is the set of key-value pairs that go after the `?` in a URL, separated by `&` characters [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q018",
+   "type": "paraphrase",
+   "question": "If a caller leaves a value out of the URL, can my function still get a fallback value?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "Yes, query parameters can have default values so that if a value is left out of the URL, the function will use that default value [3]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q021",
+   "type": "paraphrase",
+   "question": "Which spellings in the URL make a boolean query parameter come out as True?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "Based on the provided documents, boolean query parameters will come out as `True` with the following spellings (or any other case variation like uppercase or first letter in uppercase):\n\n* `1` [3]\n* `True` [3]\n* `true` [3]\n* `on` [3]\n* `yes` [3]"
+  },
+  {
+   "run_id": 3,
+   "question_id": "q024",
+   "type": "paraphrase",
+   "question": "When a function has several arguments, how does FastAPI tell which ones come from the URL path and which from the query string?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "FastAPI is smart enough to notice if a parameter is declared in the path, recognizing it as a path parameter, while other parameters (like those that are not path parameters) are recognized as query parameters [1, 2, 3]. They are detected by name and do not need to be declared in any specific order [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q025",
+   "type": "multi_hop",
+   "question": "Can I restrict a query parameter to a fixed set of values, and how do I define that set?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q027",
+   "type": "unanswerable",
+   "question": "How do I deploy my FastAPI app to AWS Lambda?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q028",
+   "type": "unanswerable",
+   "question": "How do I define a gRPC service in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q029",
+   "type": "factual",
+   "question": "Which HTTP methods should I use when I need to send data in a request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To send data, you should use one of: `POST` (the most common), `PUT`, `DELETE` or `PATCH` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q030",
+   "type": "paraphrase",
+   "question": "My GET endpoint accepts a body, but the interactive docs don't display it. Why?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "As sending a body with a `GET` request has an undefined behavior in the specifications and is discouraged, the interactive docs with Swagger UI won't show the documentation for the body when using `GET` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q032",
+   "type": "factual",
+   "question": "When a function takes a path parameter, a Pydantic model and a plain int, how does FastAPI decide where each value comes from?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "FastAPI recognizes parameters as follows:\n* If the parameter is declared in the path, it is used as a path parameter [1].\n* If the parameter is of a singular type (like `int`, `float`, `str`, `bool`, etc.), it is interpreted as a query parameter [1].\n* If the parameter is declared to be of the type of a Pydantic model, it is interpreted as a request body [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q034",
+   "type": "paraphrase",
+   "question": "What can I do if I would rather not define a Pydantic model for my request data?",
+   "category": "ranking_failure",
+   "rank_needed": 10,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q035",
+   "type": "factual",
+   "question": "What are background tasks used for?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Background tasks are used for operations that need to happen after a request, but that the client does not need to wait for to receive a response, such as sending email notifications after performing an action or processing data (like a slow file process) [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q036",
+   "type": "paraphrase",
+   "question": "My endpoint sends an email that takes several seconds. How can I stop the caller from waiting for it?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "You can define background tasks to be run after returning a response, which allows you to return the response right away without the client waiting for the operation to complete [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q037",
+   "type": "factual",
+   "question": "Which method schedules a function on the background tasks object?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The method `.add_task()` is used to pass your task function to the background tasks object [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q038",
+   "type": "factual",
+   "question": "Does a background task function have to be async, or can it be a normal function?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "It can be either an `async def` or a normal `def` function, and FastAPI will know how to handle it correctly [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q042",
+   "type": "paraphrase",
+   "question": "My frontend runs on localhost port 8080 and my backend on plain localhost. Why does the browser treat them as separate sites?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "An origin is the combination of protocol, domain, and port [1]. Even though they are both on `localhost`, `http://localhost:8080` uses port 8080 while plain `http://localhost` uses the default port 80, making them different origins [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q043",
+   "type": "factual",
+   "question": "What request does the browser send first to check whether a cross-origin call is allowed?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "The browser will send an HTTP `OPTIONS` request [4]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q045",
+   "type": "paraphrase",
+   "question": "I want cookies to work for cross-origin requests. Can I still use wildcards for origins, methods and headers?",
+   "category": "pass",
+   "rank_needed": 6,
+   "answer": "No, declaring the list of origins as a wildcard (`\"*\"`) will only allow certain types of communication and excludes everything that involves credentials, such as cookies [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q047",
+   "type": "multi_hop",
+   "question": "If my function takes a Pydantic model plus an int parameter that has no default, where does the int come from, and is it required?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q048",
+   "type": "unanswerable",
+   "question": "How can I report the progress of a background task back to the client?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q051",
+   "type": "unanswerable",
+   "question": "How do I handle WebSocket connections in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q055",
+   "type": "factual",
+   "question": "Can the detail of an HTTPException be something other than a string?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Yes, when raising an `HTTPException`, you can pass any value that can be converted to JSON as the parameter `detail` (such as a `dict` or a `list`), not only a string [2]. Additionally, FastAPI's `HTTPException` accepts any JSON-able data for the `detail` field [3]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q058",
+   "type": "factual",
+   "question": "Why shouldn't I just convert a RequestValidationError to a string and return it?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "Because if you just convert it to a string and return that information directly, you could be leaking a bit of information about your system [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q061",
+   "type": "factual",
+   "question": "Is status_code a parameter of my route function or of the decorator?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "`status_code` is a parameter of the decorator method, not of your path operation function [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q064",
+   "type": "factual",
+   "question": "Which status code is commonly returned after creating a new database record?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "`201` (named \"Created\") is commonly used after creating a new record in the database [1, 2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q065",
+   "type": "paraphrase",
+   "question": "How can I avoid memorizing numeric status codes and still get editor autocomplete?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can use the convenience variables from `fastapi.status` (or `starlette.status`), which hold the same numbers and allow you to use your editor's autocomplete [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q066",
+   "type": "factual",
+   "question": "How do I create a middleware in FastAPI?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To create a middleware, you use the decorator `@app.middleware(\"http\")` on top of a function [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q067",
+   "type": "factual",
+   "question": "What does call_next do inside a middleware function?",
+   "category": "ranking_failure",
+   "rank_needed": 5,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q068",
+   "type": "multi_hop",
+   "question": "If I add MiddlewareA first and then MiddlewareB, which one handles an incoming request first?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "Based on the provided documents, when you add middleware (such as `MiddlewareA` followed by `MiddlewareB`), the outermost middleware runs first on the request path [1]. Therefore, `MiddlewareB` runs first on the request path, followed by `MiddlewareA` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q070",
+   "type": "multi_hop",
+   "question": "What do I raise to send a 404 for a missing item, and which status code should I use for a generic client error?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "To send a 404 for a missing item, you `raise` an `HTTPException` with a status code of `404` [4]. For a generic error from the client, you can use the status code `400` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q071",
+   "type": "unanswerable",
+   "question": "How do I send FastAPI errors to Sentry?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q073",
+   "type": "unanswerable",
+   "question": "How do I return errors in the RFC 7807 problem details format?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q074",
+   "type": "unanswerable",
+   "question": "Which status code should I return when a client sends too many requests?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q076",
+   "type": "factual",
+   "question": "What naming convention must my test functions follow so pytest finds them?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Test functions must have a name that starts with `test_` [2]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q077",
+   "type": "factual",
+   "question": "Do my test functions need to be async, and do client calls need await?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "No, the testing functions are normal `def` (not `async def`), and calls to the client are also normal calls without using `await` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q078",
+   "type": "paraphrase",
+   "question": "In a test, how do I send a Python dictionary to the app as a JSON request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To send a JSON request body in a test, pass a Python object (e.g., a `dict`) to the parameter `json` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q080",
+   "type": "factual",
+   "question": "Can I pass a Pydantic model object directly to the TestClient?",
+   "category": "ranking_failure",
+   "rank_needed": 6,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q081",
+   "type": "paraphrase",
+   "question": "I don't know how to make the test client send some piece of data. Where should I look?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "You can search how to do it in `httpx` (or `requests`, as HTTPX's design is based on Requests' design), or check the HTTPX documentation [1, 3]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q083",
+   "type": "factual",
+   "question": "When do I use Form instead of a JSON body?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "You use `Form` when you need to receive form fields instead of JSON [4]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q086",
+   "type": "factual",
+   "question": "How is the Form class related to Body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "`Form` is a class that inherits directly from `Body` [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q088",
+   "type": "factual",
+   "question": "Can one route take both Form fields and fields that arrive as a JSON body, and is that a FastAPI restriction?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "No, you cannot declare `Form` (or `File`) parameters and also declare `Body` fields that you expect to receive as JSON in the same path operation, because the request body would be encoded as `application/x-www-form-urlencoded` or `multipart/form-data` instead of `application/json` [1, 3]. This is not a restriction of FastAPI, but part of the HTTP protocol [1, 3]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q091",
+   "type": "factual",
+   "question": "How can I use a Python variable named user_agent to read the User-Agent header?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "By default, `Header` automatically converts parameter name characters from underscores (`_`) to hyphens (`-`) to extract and document headers [1]. Because HTTP headers are case-insensitive, you can declare them using standard Python style (snake_case) such as `user_agent` instead of needing to capitalize the first letters [1]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q093",
+   "type": "factual",
+   "question": "What do I receive when the same header is sent twice with different values?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You will receive all the values from the duplicate header as a Python `list` [1, 4]."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q095",
+   "type": "multi_hop",
+   "question": "Why can't a route that takes a Pydantic model body also accept form fields?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 3,
+   "question_id": "q100",
+   "type": "unanswerable",
+   "question": "How do I run load tests against my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q001",
+   "type": "factual",
+   "question": "How do I declare a path parameter?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "You can declare path parameters or variables with the same syntax used by Python format strings [5]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q002",
+   "type": "unanswerable",
+   "question": "What is the capital of France?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q003",
+   "type": "factual",
+   "question": "Why does FastAPI return an error for /items/foo when item_id is declared as an int path parameter?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "FastAPI returns an error because the path parameter `item_id` had a value of `\"foo\"` (or a `float` like `4.2`), which is not an `int`."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q004",
+   "type": "factual",
+   "question": "Why must the /users/me path be declared before /users/{user_id}?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Because path operations are evaluated in order, you need to make sure that the path for `/users/me` is declared before the one for `/users/{user_id}` [2]. Otherwise, the path for `/users/{user_id}` would match for `/users/me` first, thinking it is receiving a parameter `user_id` with the value `\"me\"` [1, 2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q005",
+   "type": "factual",
+   "question": "How can I limit a path parameter to a fixed set of valid values?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "You can use a standard Python `Enum` class by importing `Enum` and creating a sub-class that inherits from `str` and from `Enum` [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q006",
+   "type": "factual",
+   "question": "How can a path parameter contain a full file path such as home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can declare a path parameter containing a path using a URL format like `/files/{file_path:path}`, where the `:path` part tells it to match any path [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q007",
+   "type": "factual",
+   "question": "What URL do I use if a path parameter must contain a leading slash, like /home/johndoe/myfile.txt?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You would use the URL `/files//home/johndoe/myfile.txt`, with a double slash (`//`) between `files` and `home` [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q008",
+   "type": "factual",
+   "question": "Besides Swagger UI, which alternative API documentation does FastAPI provide?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "FastAPI provides an alternative API documentation using ReDoc, which can be accessed at `http://127.0.0.1:8000/redoc` [1, 2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q009",
+   "type": "paraphrase",
+   "question": "I typed a decimal like 4.2 into the URL for a route that expects a whole number. Will it be accepted?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "No, providing a float like `4.2` instead of an `int` will cause an error (such as an `int_parsing` error) because the input is not a valid integer [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q010",
+   "type": "paraphrase",
+   "question": "I defined my route's allowed choices as a fixed list. Inside the function, how do I read the plain text of the option the caller picked?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q012",
+   "type": "multi_hop",
+   "question": "For a route with an int path parameter, what does my function receive for /items/3, and what does the client get back for /items/foo?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q013",
+   "type": "unanswerable",
+   "question": "How do I set a rate limit on a FastAPI endpoint?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q014",
+   "type": "unanswerable",
+   "question": "How do I add Redis caching to my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q016",
+   "type": "factual",
+   "question": "What is the query string in a URL, and how are its pairs separated?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The query is the set of key-value pairs that go after the `?` in a URL, separated by `&` characters [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q018",
+   "type": "paraphrase",
+   "question": "If a caller leaves a value out of the URL, can my function still get a fallback value?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "Yes, query parameters can be optional and can have default values when they are left out of the URL [3]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q021",
+   "type": "paraphrase",
+   "question": "Which spellings in the URL make a boolean query parameter come out as True?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "The spellings in the URL that make a boolean query parameter come out as `True` are:\n* `1` [3]\n* `True` [3]\n* `true` [3]\n* `on` [3]\n* `yes` [3]\n...or any other case variation (such as uppercase or first letter in uppercase) [3]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q024",
+   "type": "paraphrase",
+   "question": "When a function has several arguments, how does FastAPI tell which ones come from the URL path and which from the query string?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "FastAPI is smart enough to recognize that a parameter declared in the path is a path parameter, and any parameter that is not in the path (or is of a singular type) is a query parameter [1, 2, 3]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q025",
+   "type": "multi_hop",
+   "question": "Can I restrict a query parameter to a fixed set of values, and how do I define that set?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q027",
+   "type": "unanswerable",
+   "question": "How do I deploy my FastAPI app to AWS Lambda?",
+   "category": "failed_to_decline",
+   "rank_needed": null,
+   "answer": "FastAPI is open source and based on standards, meaning you can deploy FastAPI apps to any cloud provider you choose by following your cloud provider's guides [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q028",
+   "type": "unanswerable",
+   "question": "How do I define a gRPC service in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q029",
+   "type": "factual",
+   "question": "Which HTTP methods should I use when I need to send data in a request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To send data, you should use one of: `POST` (the most common), `PUT`, `DELETE`, or `PATCH` [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q030",
+   "type": "paraphrase",
+   "question": "My GET endpoint accepts a body, but the interactive docs don't display it. Why?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "Sending a body with a `GET` request has an undefined behavior in the specifications, and as it is discouraged, the interactive docs with Swagger UI won't show the documentation for the body when using `GET` [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q032",
+   "type": "factual",
+   "question": "When a function takes a path parameter, a Pydantic model and a plain int, how does FastAPI decide where each value comes from?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "FastAPI recognizes parameters as follows:\n* If the parameter is declared in the **path**, it is used as a path parameter [1].\n* If the parameter is of a **singular type** (like `int`), it is interpreted as a **query** parameter [1].\n* If the parameter is declared to be of the type of a **Pydantic model**, it is interpreted as a request **body** [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q034",
+   "type": "paraphrase",
+   "question": "What can I do if I would rather not define a Pydantic model for my request data?",
+   "category": "ranking_failure",
+   "rank_needed": 10,
+   "answer": "You can declare a response using a plain arbitrary `dict`, declaring just the type of the keys and values, without using a Pydantic model, which is useful if you don't know the valid field/attribute names beforehand [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q035",
+   "type": "factual",
+   "question": "What are background tasks used for?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Background tasks are used to run operations *after* returning a response, so the client does not have to wait for the operation to complete before receiving the response [2]. Examples include:\n* Sending email notifications after performing an action [2].\n* Processing data, such as a slow process for an uploaded file after returning an \"Accepted\" (HTTP 202) response [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q036",
+   "type": "paraphrase",
+   "question": "My endpoint sends an email that takes several seconds. How can I stop the caller from waiting for it?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "You can define background tasks to be run after returning a response [2]. For example, when sending an email notification, which tends to be slow, you can return the response right away and send the email in the background so the client doesn't have to wait [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q037",
+   "type": "factual",
+   "question": "Which method schedules a function on the background tasks object?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The `.add_task()` method [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q038",
+   "type": "factual",
+   "question": "Does a background task function have to be async, or can it be a normal function?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "It can be either an `async def` or a normal `def` function, and FastAPI will know how to handle it correctly [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q042",
+   "type": "paraphrase",
+   "question": "My frontend runs on localhost port 8080 and my backend on plain localhost. Why does the browser treat them as separate sites?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "The browser treats them as separate origins (or sites) because an origin is the combination of protocol, domain, and port, and even though they are both on `localhost`, they use different ports (`8080` for the frontend and the default port `80` for the backend) [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q043",
+   "type": "factual",
+   "question": "What request does the browser send first to check whether a cross-origin call is allowed?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "The browser will send an HTTP `OPTIONS` request [4]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q045",
+   "type": "paraphrase",
+   "question": "I want cookies to work for cross-origin requests. Can I still use wildcards for origins, methods and headers?",
+   "category": "pass",
+   "rank_needed": 6,
+   "answer": "No. None of `allow_origins`, `allow_methods` and `allow_headers` can be set to `['*']` if `allow_credentials` is set to `True`, and all of them must be explicitly specified [6]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q047",
+   "type": "multi_hop",
+   "question": "If my function takes a Pydantic model plus an int parameter that has no default, where does the int come from, and is it required?",
+   "category": "partial_retrieval",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q048",
+   "type": "unanswerable",
+   "question": "How can I report the progress of a background task back to the client?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q051",
+   "type": "unanswerable",
+   "question": "How do I handle WebSocket connections in FastAPI?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q055",
+   "type": "factual",
+   "question": "Can the detail of an HTTPException be something other than a string?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Yes, when raising an `HTTPException`, you can pass any value that can be converted to JSON as the parameter `detail`, such as a `dict` or a `list` [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q058",
+   "type": "factual",
+   "question": "Why shouldn't I just convert a RequestValidationError to a string and return it?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "If you just convert a `RequestValidationError` to a string and return it directly, you could be leaking a bit of information about your system [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q061",
+   "type": "factual",
+   "question": "Is status_code a parameter of my route function or of the decorator?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "`status_code` is a parameter of the decorator method, not of your path operation function [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q064",
+   "type": "factual",
+   "question": "Which status code is commonly returned after creating a new database record?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "`201` is commonly used after creating a new record in the database [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q065",
+   "type": "paraphrase",
+   "question": "How can I avoid memorizing numeric status codes and still get editor autocomplete?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You can use the convenience variables from `fastapi.status` (or `from starlette import status`), which hold the same numbers and allow you to use your editor's autocomplete to find them [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q066",
+   "type": "factual",
+   "question": "How do I create a middleware in FastAPI?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To create a middleware, you use the decorator `@app.middleware(\"http\")` on top of a function [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q067",
+   "type": "factual",
+   "question": "What does call_next do inside a middleware function?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "`call_next` receives the `request` as a parameter, passes the `request` to the corresponding *path operation*, and returns the `response` generated by that *path operation* [5]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q068",
+   "type": "multi_hop",
+   "question": "If I add MiddlewareA first and then MiddlewareB, which one handles an incoming request first?",
+   "category": "pass",
+   "rank_needed": 5,
+   "answer": "Based on the provided documents, when you add MiddlewareA first and then MiddlewareB:\n\n```Python\napp.add_middleware(MiddlewareA)\napp.add_middleware(MiddlewareB)\n```\n\n**MiddlewareB** runs first on the request path [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q070",
+   "type": "multi_hop",
+   "question": "What do I raise to send a 404 for a missing item, and which status code should I use for a generic client error?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "To send an error for a missing item or report client errors, you can use `HTTPException` by raising it in your code with a status code of `404` [2, 4]. For generic errors from the client, you can use the status code `400` [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q071",
+   "type": "unanswerable",
+   "question": "How do I send FastAPI errors to Sentry?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q073",
+   "type": "unanswerable",
+   "question": "How do I return errors in the RFC 7807 problem details format?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q074",
+   "type": "unanswerable",
+   "question": "Which status code should I return when a client sends too many requests?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q076",
+   "type": "factual",
+   "question": "What naming convention must my test functions follow so pytest finds them?",
+   "category": "pass",
+   "rank_needed": 2,
+   "answer": "Test function names must start with `test_` [2]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q077",
+   "type": "factual",
+   "question": "Do my test functions need to be async, and do client calls need await?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "No, the testing functions are normal `def` (not `async def`) and the calls to the client are normal calls without `await` [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q078",
+   "type": "paraphrase",
+   "question": "In a test, how do I send a Python dictionary to the app as a JSON request body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "To send a Python dictionary as a JSON request body in a test, pass the dictionary to the `json` parameter [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q080",
+   "type": "factual",
+   "question": "Can I pass a Pydantic model object directly to the TestClient?",
+   "category": "pass",
+   "rank_needed": 6,
+   "answer": "No, the `TestClient` receives data that can be converted to JSON, not Pydantic models [6]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q081",
+   "type": "paraphrase",
+   "question": "I don't know how to make the test client send some piece of data. Where should I look?",
+   "category": "pass",
+   "rank_needed": 3,
+   "answer": "You can search (Google) how to do it in `httpx`, or even how to do it with `requests`, as HTTPX's design is based on Requests' design [3]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q083",
+   "type": "factual",
+   "question": "When do I use Form instead of a JSON body?",
+   "category": "pass",
+   "rank_needed": 4,
+   "answer": "You use `Form` when you need to receive form fields instead of JSON [4]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q086",
+   "type": "factual",
+   "question": "How is the Form class related to Body?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "`Form` is a class that inherits directly from `Body`."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q088",
+   "type": "factual",
+   "question": "Can one route take both Form fields and fields that arrive as a JSON body, and is that a FastAPI restriction?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "No, you cannot declare `Form` parameters (or `File` and `Form` parameters) alongside `Body` fields that you expect to receive as JSON in the same path operation; the request body will be encoded as `application/x-www-form-urlencoded` or `multipart/form-data` instead of `application/json` [1, 3]. This is not a limitation of FastAPI, but rather part of the HTTP protocol [1, 3]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q091",
+   "type": "factual",
+   "question": "How can I use a Python variable named user_agent to read the User-Agent header?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "By default, `Header` will convert the parameter names characters from underscore (`_`) to hyphen (`-`), allowing you to use `user_agent` in Python instead of needing to capitalize it as `User_Agent` or similar [1]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q093",
+   "type": "factual",
+   "question": "What do I receive when the same header is sent twice with different values?",
+   "category": "pass",
+   "rank_needed": 1,
+   "answer": "You will receive all the values from the duplicate header as a Python `list` [1, 4]."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q095",
+   "type": "multi_hop",
+   "question": "Why can't a route that takes a Pydantic model body also accept form fields?",
+   "category": "retrieval_miss",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  },
+  {
+   "run_id": 5,
+   "question_id": "q100",
+   "type": "unanswerable",
+   "question": "How do I run load tests against my FastAPI app?",
+   "category": "pass",
+   "rank_needed": null,
+   "answer": "I don't know based on the provided documents."
+  }
+ ],
+ "optimizer_steps": [
+  {
+   "id": 4,
+   "session": "20261020-105853",
+   "step": 1,
+   "created_at": 1792474141.0974543,
+   "parent_run_id": 3,
+   "candidate_run_id": null,
+   "lever": "chunk_size",
+   "screen_gain": -5,
+   "parent_passes": 49,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -5 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "chunk_size": [
+     256,
+     192
+    ]
+   }
+  },
+  {
+   "id": 5,
+   "session": "20261020-105853",
+   "step": 3,
+   "created_at": 1792474679.046449,
+   "parent_run_id": 3,
+   "candidate_run_id": null,
+   "lever": "top_k",
+   "screen_gain": 5,
+   "parent_passes": null,
+   "candidate_passes": null,
+   "decision": "aborted",
+   "reason": "stopped early: GenerationAborted: 3 calls in a row failed. Last error: APIConnectionError: Connection error.",
+   "api_calls": 0,
+   "change": {
+    "top_k": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": 9,
+   "session": "20261022-112301",
+   "step": 1,
+   "created_at": 1792648390.0641387,
+   "parent_run_id": 3,
+   "candidate_run_id": null,
+   "lever": "chunk_size",
+   "screen_gain": -5,
+   "parent_passes": 49,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -5 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "chunk_size": [
+     256,
+     192
+    ]
+   }
+  },
+  {
+   "id": 10,
+   "session": "20261022-112301",
+   "step": 2,
+   "created_at": 1792650478.6302824,
+   "parent_run_id": 3,
+   "candidate_run_id": 5,
+   "lever": "top_k",
+   "screen_gain": 5,
+   "parent_passes": 49,
+   "candidate_passes": 51,
+   "decision": "accepted",
+   "reason": "net +2 passes (fixed 3, broken 1; sign-test p=0.62), which meets the required +2 | fixed ['q001', 'q067', 'q080'] | broken ['q027']",
+   "api_calls": 48,
+   "change": {
+    "top_k": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": 11,
+   "session": "20261022-112301",
+   "step": 3,
+   "created_at": 1792650484.7145398,
+   "parent_run_id": 4,
+   "candidate_run_id": null,
+   "lever": "hybrid_search",
+   "screen_gain": -1,
+   "parent_passes": 51,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -1 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "retriever": [
+     "dense",
+     "hybrid"
+    ]
+   }
+  },
+  {
+   "id": 12,
+   "session": "20261022-112301",
+   "step": 4,
+   "created_at": 1792650484.7183855,
+   "parent_run_id": 4,
+   "candidate_run_id": null,
+   "lever": "chunk_size",
+   "screen_gain": -7,
+   "parent_passes": 51,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -7 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "chunk_size": [
+     256,
+     192
+    ]
+   }
+  },
+  {
+   "id": 13,
+   "session": "20261022-112301",
+   "step": 6,
+   "created_at": 1792657938.3787909,
+   "parent_run_id": 4,
+   "candidate_run_id": null,
+   "lever": "prompt",
+   "screen_gain": null,
+   "parent_passes": null,
+   "candidate_passes": null,
+   "decision": "aborted",
+   "reason": "stopped early: GenerationAborted: 3 calls in a row failed. Last error: APIConnectionError: Connection error.",
+   "api_calls": 0,
+   "change": {
+    "prompt": [
+     "strict",
+     "basic"
+    ]
+   }
+  },
+  {
+   "id": 15,
+   "session": "20261026-120719",
+   "step": 1,
+   "created_at": 1792996645.8997052,
+   "parent_run_id": 3,
+   "candidate_run_id": null,
+   "lever": "chunk_size",
+   "screen_gain": -5,
+   "parent_passes": 49,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -5 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "chunk_size": [
+     256,
+     192
+    ]
+   }
+  },
+  {
+   "id": 16,
+   "session": "20261026-120719",
+   "step": 2,
+   "created_at": 1792996651.3761787,
+   "parent_run_id": 3,
+   "candidate_run_id": 5,
+   "lever": "top_k",
+   "screen_gain": 5,
+   "parent_passes": 49,
+   "candidate_passes": 51,
+   "decision": "accepted",
+   "reason": "net +2 passes (fixed 3, broken 1; sign-test p=0.62), which meets the required +2 | fixed ['q001', 'q067', 'q080'] | broken ['q027']",
+   "api_calls": 0,
+   "change": {
+    "top_k": [
+     4,
+     6
+    ]
+   }
+  },
+  {
+   "id": 17,
+   "session": "20261026-120719",
+   "step": 3,
+   "created_at": 1792996654.713102,
+   "parent_run_id": 5,
+   "candidate_run_id": null,
+   "lever": "hybrid_search",
+   "screen_gain": -1,
+   "parent_passes": 51,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -1 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "retriever": [
+     "dense",
+     "hybrid"
+    ]
+   }
+  },
+  {
+   "id": 18,
+   "session": "20261026-120719",
+   "step": 4,
+   "created_at": 1792996654.7301023,
+   "parent_run_id": 5,
+   "candidate_run_id": null,
+   "lever": "chunk_size",
+   "screen_gain": -7,
+   "parent_passes": 51,
+   "candidate_passes": null,
+   "decision": "skipped_screen",
+   "reason": "free retrieval screen: covers -7 questions, so it is not worth an API run",
+   "api_calls": 0,
+   "change": {
+    "chunk_size": [
+     256,
+     192
+    ]
+   }
+  },
+  {
+   "id": 19,
+   "session": "20261026-120719",
+   "step": 5,
+   "created_at": 1792998451.4272466,
+   "parent_run_id": 5,
+   "candidate_run_id": null,
+   "lever": "prompt",
+   "screen_gain": null,
+   "parent_passes": 51,
+   "candidate_passes": null,
+   "decision": "aborted",
+   "reason": "errors on 2 questions (['q012', 'q013']); run not logged",
+   "api_calls": 150,
+   "change": {
+    "prompt": [
+     "strict",
+     "basic"
+    ]
+   }
+  }
+ ],
+ "retrieval_space": [
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 3,
+   "covered": 27,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 549,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 3,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 549,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 4,
+   "covered": 29,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 692,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 4,
+   "covered": 35,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 692,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 5,
+   "covered": 29,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 835,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 5,
+   "covered": 35,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 835,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 6,
+   "covered": 30,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 978,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 6,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 978,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 8,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1264,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 8,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1264,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 10,
+   "covered": 33,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1550,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 0,
+   "top_k": 10,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1550,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 3,
+   "covered": 28,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 549,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 3,
+   "covered": 33,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 549,
+   "pareto": true
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 4,
+   "covered": 31,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 692,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 4,
+   "covered": 35,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 692,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 5,
+   "covered": 31,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 835,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 5,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 835,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 6,
+   "covered": 31,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 978,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 6,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 978,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 8,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1264,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 8,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1264,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 10,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1550,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 16,
+   "top_k": 10,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1550,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 3,
+   "covered": 27,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 549,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 3,
+   "covered": 33,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 549,
+   "pareto": true
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 4,
+   "covered": 30,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 692,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 4,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 692,
+   "pareto": true
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 5,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 835,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 5,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 835,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 6,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 978,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 6,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 978,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 8,
+   "covered": 33,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1264,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 8,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1264,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 10,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1550,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 128,
+   "overlap": 32,
+   "top_k": 10,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1550,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 3,
+   "covered": 31,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 741,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 3,
+   "covered": 35,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 741,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 4,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 948,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 4,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 948,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 5,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1155,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 5,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1155,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 6,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1362,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 6,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1362,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 8,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1776,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 8,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1776,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 10,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2190,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 0,
+   "top_k": 10,
+   "covered": 40,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2190,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 3,
+   "covered": 28,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 741,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 3,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 741,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 4,
+   "covered": 30,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 948,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 4,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 948,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 5,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1155,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 5,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1155,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 6,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1362,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 6,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1362,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 8,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1776,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 8,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1776,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 10,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2190,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 16,
+   "top_k": 10,
+   "covered": 40,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2190,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 3,
+   "covered": 30,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 741,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 3,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 741,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 4,
+   "covered": 31,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 948,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 4,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 948,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 5,
+   "covered": 33,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1155,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 5,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1155,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 6,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1362,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 6,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1362,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 8,
+   "covered": 34,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1776,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 8,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1776,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 10,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2190,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 192,
+   "overlap": 32,
+   "top_k": 10,
+   "covered": 40,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2190,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 3,
+   "covered": 31,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 933,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 3,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 933,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 4,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1204,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 4,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1204,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 5,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1475,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 5,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1475,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 6,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1746,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 6,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1746,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 8,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2288,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 0,
+   "top_k": 8,
+   "covered": 41,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2288,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 3,
+   "covered": 32,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 933,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 3,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 933,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 4,
+   "covered": 35,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1204,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 4,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1204,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 5,
+   "covered": 37,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1475,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 5,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1475,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 6,
+   "covered": 38,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1746,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 6,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1746,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 8,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2288,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 16,
+   "top_k": 8,
+   "covered": 40,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2288,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 3,
+   "covered": 33,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 933,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 3,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 933,
+   "pareto": true
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "covered": 36,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1204,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 4,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1204,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 5,
+   "covered": 39,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1475,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 5,
+   "covered": 40,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1475,
+   "pareto": true
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 6,
+   "covered": 41,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1746,
+   "pareto": true
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 6,
+   "covered": 40,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 1746,
+   "pareto": false
+  },
+  {
+   "retriever": "dense",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 8,
+   "covered": 41,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2288,
+   "pareto": false
+  },
+  {
+   "retriever": "hybrid",
+   "chunk_size": 256,
+   "overlap": 32,
+   "top_k": 8,
+   "covered": 41,
+   "n_answerable": 47,
+   "prompt_tokens_estimate": 2288,
+   "pareto": false
+  }
+ ],
+ "test_lock": {
+  "completed": [
+   {
+    "config": "baseline",
+    "replicate": 0,
+    "run_id": 6,
+    "finished": "2026-10-29 11:40:16"
+   },
+   {
+    "config": "optimized",
+    "replicate": 0,
+    "run_id": 7,
+    "finished": "2026-11-05 11:35:00"
+   },
+   {
+    "config": "cheap",
+    "replicate": 0,
+    "run_id": 8,
+    "finished": "2026-11-10 10:52:21"
+   },
+   {
+    "config": "baseline",
+    "replicate": 1,
+    "run_id": 9,
+    "finished": "2026-11-10 10:59:49"
+   },
+   {
+    "config": "optimized",
+    "replicate": 1,
+    "run_id": 10,
+    "finished": "2026-11-10 11:09:55"
+   },
+   {
+    "config": "cheap",
+    "replicate": 1,
+    "run_id": 11,
+    "finished": "2026-11-11 10:23:29"
+   }
+  ],
+  "fingerprint": "8321798aa4ec64e0c3ca179cd79fcadf81dce27603510c7d8a3d7d9bb7d7d3b1",
+  "models": [
+   "gemini-3.5-flash-lite",
+   "gemini-3.5-flash-lite"
+  ]
+ }
+}
