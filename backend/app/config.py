@@ -25,5 +25,10 @@ class Settings(BaseSettings):
     ask_per_ip_per_hour: int = 5
     ask_daily_cap: int = 100
 
+    admin_token: str = ""  # empty disables the optimizer job endpoints
+    job_max_budget: int = 250
+    job_max_experiments: int = 3
+    job_approval_timeout_s: int = 900
+
 
 settings = Settings()
