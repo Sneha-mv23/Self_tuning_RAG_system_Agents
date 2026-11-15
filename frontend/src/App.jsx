@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import FailureExplorer from './components/FailureExplorer.jsx'
 import Overview from './components/Overview.jsx'
+import SpaceChart from './components/SpaceChart.jsx'
 import { loadResults } from './lib/api.js'
 import './styles.css'
 import './explorer.css'
 
-const TABS = [['overview', 'Overview'], ['failures', 'Failure explorer']]
+const TABS = [['overview', 'Overview'], ['failures', 'Failure explorer'], ['space', 'Retrieval space']]
 
 export default function App() {
   const [state, setState] = useState({ status: 'loading' })
@@ -43,6 +44,7 @@ export default function App() {
           </nav>
           {tab === 'overview' && <Overview data={state.data} />}
           {tab === 'failures' && <FailureExplorer data={state.data} />}
+          {tab === 'space' && <SpaceChart data={state.data} />}
         </>
       )}
     </main>
