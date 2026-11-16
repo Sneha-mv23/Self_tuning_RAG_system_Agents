@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Ask from './components/Ask.jsx'
 import FailureExplorer from './components/FailureExplorer.jsx'
 import Overview from './components/Overview.jsx'
 import SpaceChart from './components/SpaceChart.jsx'
@@ -6,7 +7,12 @@ import { loadResults } from './lib/api.js'
 import './styles.css'
 import './explorer.css'
 
-const TABS = [['overview', 'Overview'], ['failures', 'Failure explorer'], ['space', 'Retrieval space']]
+const TABS = [
+  ['overview', 'Overview'],
+  ['failures', 'Failure explorer'],
+  ['space', 'Retrieval space'],
+  ['ask', 'Ask'],
+]
 
 export default function App() {
   const [state, setState] = useState({ status: 'loading' })
@@ -45,6 +51,7 @@ export default function App() {
           {tab === 'overview' && <Overview data={state.data} />}
           {tab === 'failures' && <FailureExplorer data={state.data} />}
           {tab === 'space' && <SpaceChart data={state.data} />}
+          {tab === 'ask' && <Ask />}
         </>
       )}
     </main>
