@@ -1,0 +1,12 @@
+.log { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin: 10px 0;
+  font: 12px/1.5 ui-monospace, Consolas, monospace; white-space: pre-wrap; max-height: 340px; overflow-y: auto; }
+.log .status { color: var(--accent); font-weight: 600; }
+.log .dim { color: var(--muted); }
+.decision { border: 2px solid var(--warn); border-radius: 10px; padding: 12px 16px; margin: 12px 0; background: var(--card); }
+.decision-row { display: flex; gap: 10px; margin-top: 10px; }
+.btn.danger { border-color: var(--bad); background: none; color: var(--bad); }
+.fields { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; align-items: flex-end; }
+.fields label { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--muted); }
+.fields input[type=number], .fields input[type=password], .fields select { font: inherit; font-size: 13px; padding: 5px 8px;
+  background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; }
+.fields .check { flex-direction: row; align-items: center; gap: 6px; color: var(--fg); font-size: 13px; }

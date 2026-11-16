@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Ask from './components/Ask.jsx'
 import FailureExplorer from './components/FailureExplorer.jsx'
+import OptimizerPanel from './components/OptimizerPanel.jsx'
 import Overview from './components/Overview.jsx'
 import SpaceChart from './components/SpaceChart.jsx'
 import { loadResults } from './lib/api.js'
@@ -12,6 +13,7 @@ const TABS = [
   ['failures', 'Failure explorer'],
   ['space', 'Retrieval space'],
   ['ask', 'Ask'],
+  ['optimizer', 'Optimizer'],
 ]
 
 export default function App() {
@@ -52,6 +54,7 @@ export default function App() {
           {tab === 'failures' && <FailureExplorer data={state.data} />}
           {tab === 'space' && <SpaceChart data={state.data} />}
           {tab === 'ask' && <Ask />}
+          {tab === 'optimizer' && <OptimizerPanel data={state.data} />}
         </>
       )}
     </main>

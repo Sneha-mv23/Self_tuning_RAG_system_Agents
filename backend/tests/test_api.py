@@ -128,3 +128,13 @@ def test_denied_requests_are_not_recorded():
     assert not lim.check("a")[0]
     clock.t = 101  # the first request has expired; the denied one must not have been counted
     assert lim.check("a")[0]
+
+def test_health_reports_whether_jobs_are_enabled(tmp_path):
+    from app.api.main import create_app
+
+    app = create_app(FakeService(), results_path=str(tmp_path / "r.json"), docs_dir=str(tmp_path),
+                     limiter=RateLimiter(100, 3600, 1000, 86400), admin_token="secret")
+    assert TestClient(app).get("/api/health").json()["jobs_enabled"] is True
+    off = create_app(FakeService(), results_path=str(tmp_path / "r.json"), docs_dir=str(tmp_path),
+                     limiter=RateLimiter(100, 3600, 1000, 86400), admin_token="")
+    assert TestClient(off).get("/api/health").json()["jobs_enabled"] is False

@@ -120,7 +120,8 @@ def create_app(service=None, results_path: str = "experiments/export/results.jso
 
     @app.get("/api/health")
     def health():
-        return {"status": "ok", "results_available": results_file.exists(), "generator": settings.generator_model}
+        return {"status": "ok", "results_available": results_file.exists(), "generator": settings.generator_model,
+                "jobs_enabled": bool(admin)}
 
     @app.get("/api/defaults")
     def defaults():
